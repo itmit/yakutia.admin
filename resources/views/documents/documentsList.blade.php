@@ -6,6 +6,7 @@
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
             <form class="form-horizontal" method="POST" action="{{ route('auth.documents.store') }}" enctype="multipart/form-data">
+                {{ csrf_field() }}
                 <input type="file" name="docs" class="form-control" multiple required>
                 <select name="section">
                     <option value="1. Регистрация НКО">1. Регистрация НКО</option>
