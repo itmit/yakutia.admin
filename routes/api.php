@@ -28,5 +28,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
     Route::get('messenger/index', 'Api\MessengerApiController@index');
     Route::post('messenger/send', 'Api\MessengerApiController@send');
+
+    Route::get('document/index', 'Api\DocumentApiController@index');
     
 });

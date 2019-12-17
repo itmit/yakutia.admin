@@ -8,7 +8,6 @@ use App\Models\Document;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class DocumentWebController extends Controller
 {
@@ -35,11 +34,11 @@ class DocumentWebController extends Controller
     {
         foreach($request->file('docs') as $file)
         {
-            $path = $file->store('public/newsPictures');
+            $path = $file->storeAs('public/documents', $file->getClientOriginalName());
             $url = Storage::url($path);
 
             Document::create([
-                'section' => Str::uuid(),
+                'section' => $request->section,
                 'doc' => $url,
             ]);
         }
