@@ -107,7 +107,7 @@
         
                             <li><a href="{{ route('auth.polls.index') }}">Онлайн голосование</a></li>
         
-                            <li><a href="">Документы</a></li>
+                            <li><a href="{{ route('auth.documents.index') }}">Документы</a></li>
         
                             <li><a href="{{ route('auth.messenger.index') }}">Мессенджер</a></li>
         

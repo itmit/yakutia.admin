@@ -24,6 +24,7 @@ class AuthApiController extends ApiBaseController
     private $type;
     private $password;
     private $user;
+    private $device_token;
 
     public function register(Request $request)
     {
@@ -47,6 +48,7 @@ class AuthApiController extends ApiBaseController
         $this->email = $request->email;
         $this->type = $request->type;
         $this->password = $request->password;
+        $this->device_token = $request->device_token;
 
         DB::transaction(function () {
             $this->user = Client::create([
@@ -56,6 +58,13 @@ class AuthApiController extends ApiBaseController
                 'type' => $this->type,
                 'password' => Hash::make($this->password),
             ]);
+
+            if($this->device_token)
+            {
+                Client::where('id', '=', $this->user->id)->update([
+                    'device_token' => $this->device_token
+                ]);
+            };
            
             Messenger::create([
                 'uuid' => Str::uuid(),
@@ -99,7 +108,7 @@ class AuthApiController extends ApiBaseController
 
         $validator = Validator::make($request->all(), [ 
             'email' => 'required|email',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
         ]);
         
         if ($validator->fails()) { 
@@ -121,6 +130,10 @@ class AuthApiController extends ApiBaseController
                 $token = $tokenResult->token;
                 $token->expires_at = Carbon::now()->addWeeks(1);
                 $token->save();
+
+                Client::where('id', '=', $client->id)->update([
+                    'device_token' => $request->device_token
+                ]);
 
                 return $this->sendResponse([
                     'access_token' => $tokenResult->accessToken,
