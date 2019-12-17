@@ -111,7 +111,7 @@ class AuthApiController extends ApiBaseController
             return response()->json(['error'=>'Такого пользователя не существует'], 401); 
         }       
 
-        $client = Client::where('email', '=', $request->email)->first('password', 'id');
+        $client = Client::where('email', '=', $request->email)->first();
 
         if(Hash::check($request->password, $client->password))
         {
