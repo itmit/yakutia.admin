@@ -34,6 +34,13 @@ class DocumentWebController extends Controller
     public function store(Request $request)
     {
 
+        dd($request->file('docs'));
+
+        // $path = $request->file('news_picture')->store('public/newsPictures');
+        // $url = Storage::url($path);
+
+        return 'a';
+
         $request->news_head = trim($request->news_head);
         $request->news_body = trim($request->news_body);
 
