@@ -46,7 +46,7 @@
                 @foreach($docs as $item)
                     <tr>
                         <td>{{ $item->section }}</td>
-                        <td>{{ stristr($item->doc, '/storage/documents/') }}</td>
+                        <td>{{ stristr($item->doc, '/') }}</td>
                     </tr>
                 @endforeach
                 </tbody>
