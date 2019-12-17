@@ -46,7 +46,7 @@
                 @foreach($docs as $item)
                     <tr>
                         <td>{{ $item->section }}</td>
-                        <td>{{ strstr($item->doc, '/', true) }}</td>
+                        <td>{{ substr(strrchr($item->doc, '/'), 1) }}</td>
                     </tr>
                 @endforeach
                 </tbody>
