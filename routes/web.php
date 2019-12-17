@@ -32,6 +32,7 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::resource('messenger', 'Web\MessengerWebController');
 
     Route::resource('documents', 'Web\DocumentWebController');
+    Route::delete('documents/delete', 'Web\DocumentWebController@delete');
     
 });
 

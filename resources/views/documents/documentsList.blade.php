@@ -67,20 +67,19 @@ $(document).on('click', '.delete-file', function() {
     {
         let id = $(this).data('id');
         console.log(id);
-        // $.ajax({
-        //     headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        //     dataType: "json",
-        //     data    : { ids: ids },
-        //     url     : 'polls/delete',
-        //     method    : 'delete',
-        //     success: function (response) {
-        //         $(".js-destroy:checked").closest('tr').remove();
-        //         $(".js-destroy").prop("checked", "");
-        //     },
-        //     error: function (xhr, err) { 
-        //         console.log("Error: " + xhr + " " + err);
-        //     }
-        // });
+        $.ajax({
+            headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            dataType: "json",
+            data    : { id: id },
+            url     : 'documents/delete',
+            method    : 'delete',
+            success: function (response) {
+                $(this).closest('tr').remove();
+            },
+            error: function (xhr, err) { 
+                console.log("Error: " + xhr + " " + err);
+            }
+        });
     }
 });
 
