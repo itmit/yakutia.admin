@@ -111,13 +111,13 @@ class AuthApiController extends ApiBaseController
             return response()->json(['error'=>'Такого пользователя не существует'], 401); 
         }       
 
-        $this->user = Client::where('email', '=', $request->email)->first('password');
+        $client = Client::where('email', '=', $request->email)->first('password', 'id');
 
         if(Hash::check($request->password, $client->password))
         {
-            Auth::login($this->user);
+            Auth::login($client);
             if (Auth::check()) {
-                $tokenResult = $this->user->createToken(config('app.name'));
+                $tokenResult = $client->createToken(config('app.name'));
                 $token = $tokenResult->token;
                 $token->expires_at = Carbon::now()->addWeeks(1);
                 $token->save();
