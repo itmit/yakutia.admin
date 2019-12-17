@@ -11,23 +11,26 @@
                     <div class="col-4 col-sm-12">
                         <p>
                             {{ $item->message }}
-                            <small>{{ $item->created_at }}</small>
+                            <small>{{ {{ date('d.m.Y H:i:s', strtotime($item->created_at->timezone('Moscow'))) }} }}</small>
                         </p>
                         
                     </div>
                 @else
                     <div class="col-4 col-sm-12 col-sm-offset-4">
                         <p>
-                            {{ $item->message }}
                             <small>{{ $item->created_at }}</small>
+                            {{ $item->message }}
                         </p>
                         
                     </div>
                 @endif
             @endforeach
-            <div class="col-4 col-sm-12">
-                <input type="text" name="" id="" class="form-control">
-            </div>    
+            <form action="">
+                <div class="col-4 col-sm-12">
+                    <input type="text" name="" id="" class="form-control">
+                </div>    
+                <input type="submit" value="Ответить">
+            </form>
         </div>
     </div>
 </div>
