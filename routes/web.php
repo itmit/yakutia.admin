@@ -11,10 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
+    
+    Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::resource('news', 'Web\NewsWebController');
+
+    Route::resource('cases', 'Web\CasesWebController');
+
+    Route::resource('polls', 'Web\PollWebController');
+
+    Route::resource('events', 'Web\EventWebController');
+
+    Route::resource('mods', 'Web\ModsWebController');
+
+    Route::resource('user', 'Web\UserWebController');
+
+    Route::resource('messenger', 'Web\MessengerWebController');
+    
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
