@@ -225,7 +225,7 @@
                     console.log("Error: " + xhr + " " + err);
                 }
             });
-            window.location.replace("http://yakutia.itmit-studio.ru/polls");
+            // window.location.replace("http://yakutia.itmit-studio.ru/polls");
             return false;
         });
 
