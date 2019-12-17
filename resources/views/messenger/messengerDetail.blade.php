@@ -11,14 +11,14 @@
                     <div class="col-4 col-sm-12">
                         <p>
                             {{ $item->message }}
-                            <small>{{ date('d.m.Y H:i:s', strtotime($item->created_at->timezone('Moscow'))) }}</small>
+                            <small>{{ date('d.m.Y H:i:s', strtotime($item->created_at->timezone('Europe/Moscow'))) }}</small>
                         </p>
                         
                     </div>
                 @else
                     <div class="col-4 col-sm-12 col-sm-offset-4">
                         <p>
-                            <small>{{ date('d.m.Y H:i:s', strtotime($item->created_at->timezone('Moscow'))) }}</small>
+                            <small>{{ date('d.m.Y H:i:s', strtotime($item->created_at->timezone('Europe/Moscow'))) }}</small>
                             {{ $item->message }}
                         </p>
                         
