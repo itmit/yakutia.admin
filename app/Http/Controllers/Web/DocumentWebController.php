@@ -21,7 +21,7 @@ class DocumentWebController extends Controller
     {
         return view('documents.documentsList', [
             'title' => 'Документы',
-            'docs' => Document::all()->sortByDesc('created_at')
+            'docs' => Document::all()->sortByDesc('section')
         ]);
     }
 
