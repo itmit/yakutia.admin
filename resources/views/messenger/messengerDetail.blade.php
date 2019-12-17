@@ -11,15 +11,17 @@
                     <div class="col-4 col-sm-12">
                         <p>
                             {{ $item->message }}
+                            <small>{{ $item->created_at }}</small>
                         </p>
-                        <small>{{ $item->created_at }}</small>
+                        
                     </div>
                 @else
                     <div class="col-4 col-sm-12 col-sm-offset-4">
                         <p>
                             {{ $item->message }}
+                            <small>{{ $item->created_at }}</small>
                         </p>
-                        <small>{{ $item->created_at }}</small>
+                        
                     </div>
                 @endif
             @endforeach
