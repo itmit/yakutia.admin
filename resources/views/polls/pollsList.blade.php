@@ -17,13 +17,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{-- @foreach($polls as $poll)
+                @foreach($polls as $poll)
                     <tr>
-                        <td scope="row"><input type="checkbox" data-poll-id="{{ $poll->id }}" name="destoy-poll-{{ $poll->id }}" class="js-destroy"/></td>
-                        <td><a href="poll/{{ $poll->id }}"> {{ $poll->name }} </a></td>
+                        <td>{{ $poll->name }}</td>
                         <td>{{ $poll->created_at->timezone('Europe/Moscow') }}</td>
                     </tr>
-                @endforeach --}}
+                @endforeach
                 </tbody>
             </table>
         </div>
