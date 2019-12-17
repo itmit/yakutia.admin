@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Messenger;
 use App\Models\UserToMessage;
+use App\Models\Client;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -71,24 +72,30 @@ class MessengerWebController extends Controller
             'direction' => 1
         ]);
 
+        $client = Client::where('id', '=', $request->i);
+        if($client->device_token)
+        {
+            self::SendPush($client->device_token);
+        }
+
         return self::show($request->i);
     }
 
-    private function SendPush()
+    private function SendPush($token)
     {
         $url = 'https://fcm.googleapis.com/fcm/send';
 
         $fields = array (
-            'to' => '/topics/AdminNotification',
+            'to' => $token,
             "notification" => [
-                "body" => "У вас ".$countOfReservations." необработанных заявок.",
+                "body" => "Вам ответил администратор!",
                 "title" => "Внимание"
             ]
         );
         $fields = json_encode ( $fields );
 
         $headers = array (
-                'Authorization: key=' . "AAAAcZkfTDU:APA91bGgoysHhtZfk272579GGadndryldrSN49MEIO3QGrgI1aKTYir62YbtVXHEaICk1-G1NIWq9DsmCwQGmcmnqqlXWltysqQRoXPoXEdkvz-1oiHS-cF54VSNsWOvut-I_0gBQgrx",
+                'Authorization: key=' . "AAAA6ySBDpw:APA91bH_y7bFtB0fHFyLiSiDjvy4BvqzkiOzsU_QbJyWFHAH0n1EdGqsllWm_r_wOxDGxiThbHtLRVF7WzaG3pZFTp_Skxk9bb-VeZdA8HOwIQG7hOvZb4LhOWqjX6sV9nkaHhbzpgzp",
                 'Content-Type: application/json'
         );
 

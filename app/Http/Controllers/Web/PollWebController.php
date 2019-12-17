@@ -37,4 +37,58 @@ class PollWebController extends Controller
     {
         return view('polls.pollCreate'); 
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $poll = Poll::create([
+            'uuid' => (string) Str::uuid(),
+            'name' => $request->all_data["name"],
+            'description' => $request->all_data["description"],
+            'category' => $request->all_data["category"],
+            'link' => $request->all_data["link"],
+            'start_at' => $request->all_data["start_at"],
+            'end_at' => $request->all_data["end_at"],
+        ]);
+
+        foreach($request->all_data["questions"] as $questions)
+        {
+            if($questions['multiple'] == 'true') $questions['multiple'] = 1;
+            if($questions['multiple'] == 'false') $questions['multiple'] = 0;
+
+            $pollQuestion = PollQuestions::create([
+                'uuid' => (string) Str::uuid(),
+                'poll_id' => $poll->id,
+                'question' => $questions['question_name'],
+                'multiple' => $questions['multiple'],
+            ]);
+
+            $i = 0;
+
+            foreach ($questions['answers'] as $key => $value) {
+                $pollQuestionAnswer = PollQuestionAnswers::create([
+                    'uuid' => (string) Str::uuid(),
+                    'question_id' => $pollQuestion->id,
+                    'answer' => $value,
+                    // 'answers_count' => $questions['answer_count'][$i],
+                    'type' => 0,
+                ]);
+                $i++;
+            }
+
+            if($questions['other'] == 'true'){
+                $pollQuestionAnswer = PollQuestionAnswers::create([
+                    'uuid' => (string) Str::uuid(),
+                    'question_id' => $pollQuestion->id,
+                    'answer' => 'Другой',
+                    'type' => 1,
+                ]);
+            }
+        };
+    }
 }
