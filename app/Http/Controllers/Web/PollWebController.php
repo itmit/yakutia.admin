@@ -50,7 +50,6 @@ class PollWebController extends Controller
             'uuid' => (string) Str::uuid(),
             'name' => $request->all_data["name"],
             'description' => $request->all_data["description"],
-            'category' => $request->all_data["category"],
             'link' => $request->all_data["link"],
             'start_at' => $request->all_data["start_at"],
             'end_at' => $request->all_data["end_at"],
