@@ -13,7 +13,7 @@
                             {{ $item->message }}
                             <small>{{ date('H:i:s d.m.Y', strtotime($item->created_at->timezone('Europe/Moscow'))) }}</small>
                         </p>
-                        
+                        <hr>
                     </div>
                 @else
                     <div class="col-4 col-sm-12 col-sm-offset-4">
@@ -21,15 +21,16 @@
                             <small>{{ date('H:i:s d.m.Y', strtotime($item->created_at->timezone('Europe/Moscow'))) }}</small>
                             {{ $item->message }}
                         </p>
-                        
+                        <hr>
                     </div>
                 @endif
             @endforeach
-            <form action="">
+            <form action="{{ route('auth.messenger.store') }}" method="post" enctype="multipart/form-data">
                 <div class="col-4 col-sm-12">
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="message_answer" class="form-control">
+                    <input type="hidden" name="i" value="{{ $id }}">
+                    <input type="submit" value="Ответить" class="btn btn-primary">
                 </div>    
-                <input type="submit" value="Ответить">
             </form>
         </div>
     </div>
