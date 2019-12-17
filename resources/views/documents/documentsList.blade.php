@@ -48,7 +48,9 @@
                     <tr>
                         <td>{{ $item->section }}</td>
                         <td><a href="{{ $item->doc }}">{{ substr(strrchr($item->doc, '/'), 1) }}</a></td>
-                        <td style="cursor: pointer" data-id="{{ $item->id }}" class="delete-file">удалить файл</td>
+                        <td style="cursor: pointer" data-id="{{ $item->id }}" class="delete-file"><i class="material-icons">
+                                delete
+                                </i></td>
                     </tr>
                 @endforeach
                 </tbody>
