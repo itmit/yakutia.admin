@@ -27,7 +27,7 @@
             @endforeach
             <form action="{{ route('auth.messenger.store') }}" method="post" enctype="multipart/form-data">
                 <div class="col-4 col-sm-12">
-                    <input type="text" name="message_answer" class="form-control">
+                    <input type="text" name="message_answer" class="form-control" required>
                     <input type="hidden" name="i" value="{{ $id }}">
                     <input type="submit" value="Ответить" class="btn btn-primary">
                 </div>    

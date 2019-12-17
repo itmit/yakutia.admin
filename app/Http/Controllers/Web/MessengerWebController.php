@@ -70,6 +70,8 @@ class MessengerWebController extends Controller
             'message' => $request->message_answer,
             'direction' => 1
         ]);
+
+        return self::show($request->i);
     }
 
 }
