@@ -78,6 +78,8 @@ return [
         ],
     ],
 
+    'model' => App\Models\User::class,
+
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
