@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     Route::get('cases/index/{limit}/{offset}', 'Api\CaseApiController@index');
 
-    Route::get('messenger/index/{id}', 'Api\MessengerApiController@index');
-    Route::post('messenger/send/{id}', 'Api\MessengerApiController@send');
+    Route::get('messenger/index', 'Api\MessengerApiController@index');
+    Route::post('messenger/send', 'Api\MessengerApiController@send');
     
 });

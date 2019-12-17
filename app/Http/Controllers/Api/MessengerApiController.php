@@ -16,7 +16,7 @@ class MessengerApiController extends ApiBaseController
 {
     public $successStatus = 200;
 
-    public function index($userId = null)
+    public function index()
     {
         $userId = auth('api')->user()->id;
 
@@ -29,7 +29,6 @@ class MessengerApiController extends ApiBaseController
 
     public function send(Request $request)
     {
-
         $validator = Validator::make($request->all(), [ 
             'message' => 'required|string|min:1|max:1000'
         ]);
