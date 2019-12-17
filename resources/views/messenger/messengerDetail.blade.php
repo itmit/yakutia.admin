@@ -16,7 +16,7 @@
                     </div>
                     <hr>
                 @else
-                    <div class="col-4 col-sm-12 col-sm-offset-4">
+                    <div class="col-4 col-sm-12 col-sm-offset-8">
                         <p>
                             <small>{{ date('H:i:s d.m.Y', strtotime($item->created_at->timezone('Europe/Moscow'))) }}</small>
                             {{ $item->message }}
