@@ -27,17 +27,29 @@ class MessengerApiController extends ApiBaseController
         return $this->sendResponse($messages, 'Messages returned');
     }
 
-    public function send()
+    public function send(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [ 
+            'message' => 'required|string|min:1|max:1000'
+        ]);
+        
+        if ($validator->fails()) { 
+            return response()->json(['errors'=>$validator->errors()], 404);            
+        }
+
         $userId = auth('api')->user()->id;
 
         $messenger = Messenger::where('client_id', '=', $userId)->first('id');
 
-        $messages = UserToMessage::select('messenger_id', 'message', 'direction', 'created_at')->where('messenger_id', '=', $messenger->id)->orderBy('created_at', 'desc')->get()->toArray();
+        UserToMessage::create([
+            'uuid' => Str::uuid(),
+            'messenger_id' => $messenger->id,
+            'message' => $request->message,
+            'direction' => 0
+        ]);
 
-        return $this->sendResponse($messages, 'Messages returned');
+        return $this->sendResponse([], 'Messages sended');
     }
-
-
 
 }
