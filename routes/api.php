@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::post('login', 'Api\AuthApiController@login');
 Route::post('register', 'Api\AuthApiController@register');
 
-Route::group(['middleware' => 'auth:api'], function() {
+Route::group(['middleware' => 'auth:api'], function(){
 
     Route::get('events/getEventsByDate/{date}', 'Api\EventApiController@getEventsByDate');
     Route::post('events/registerOnEvent', 'Api\EventApiController@registerOnEvent');

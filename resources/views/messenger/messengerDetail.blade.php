@@ -26,6 +26,7 @@
                 @endif
             @endforeach
             <form action="{{ route('auth.messenger.store') }}" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
                 <div class="col-4 col-sm-12">
                     <input type="text" name="message_answer" class="form-control" required>
                     <input type="hidden" name="i" value="{{ $id }}">
