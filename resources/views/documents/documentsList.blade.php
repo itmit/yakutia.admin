@@ -40,6 +40,7 @@
                 <tr>
                     <th scope="col">Раздел</th>
                     <th scope="col">Документы</th>
+                    <th scope="col">Удалить</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -47,6 +48,7 @@
                     <tr>
                         <td>{{ $item->section }}</td>
                         <td><a href="{{ $item->doc }}">{{ substr(strrchr($item->doc, '/'), 1) }}</a></td>
+                        <td style="cursor: pointer" data-id="{{ $item->id }}" class="delete-file">удалить файл</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -54,5 +56,31 @@
         </div>
     </div>
 </div>
+<script>
 
+$(document).on('click', '.delete-file', function() {
+    let isDelete = confirm("Удалить файл? Данное действие невозможно отменить!");
+
+    if(isDelete)
+    {
+        let id = $(this).data('id');
+        console.log(id);
+        // $.ajax({
+        //     headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        //     dataType: "json",
+        //     data    : { ids: ids },
+        //     url     : 'polls/delete',
+        //     method    : 'delete',
+        //     success: function (response) {
+        //         $(".js-destroy:checked").closest('tr').remove();
+        //         $(".js-destroy").prop("checked", "");
+        //     },
+        //     error: function (xhr, err) { 
+        //         console.log("Error: " + xhr + " " + err);
+        //     }
+        // });
+    }
+});
+
+</script>
 @endsection
