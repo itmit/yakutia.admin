@@ -52,7 +52,7 @@ class DocumentWebController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete(Request $request)
+    public function destroy(Request $request)
     {
         Document::where('id', '=', $request->id)->delete();
         return 'deleted';
