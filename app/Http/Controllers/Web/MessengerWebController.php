@@ -37,7 +37,7 @@ class MessengerWebController extends Controller
         return view('messenger.messengerDetail', [
             'title' => 'Чат с пользователем',
             'messenger' => Messenger::select('client_id', 'id')->where('id', '=', $id)->first(),
-            'messages' => UserToMessage::select('messenger_id', 'message', 'direction', 'created_at')->where('messenger_id', '=', $id)->orderBy('created_at', 'desc')->get()
+            'messages' => UserToMessage::select('messenger_id', 'message', 'direction', 'created_at')->where('messenger_id', '=', $id)->orderBy('created_at', 'asc')->get()
         ]);
     }
 
