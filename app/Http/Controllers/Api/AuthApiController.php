@@ -117,7 +117,7 @@ class AuthApiController extends ApiBaseController
         {
             Auth::login($client);
             if (Auth::check()) {
-                $tokenResult = $client->createToken(config('app.name'));
+                $tokenResult = $client->createToken(config('app.name'))->accessToken;
                 $token = $tokenResult->token;
                 $token->expires_at = Carbon::now()->addWeeks(1);
                 $token->save();
