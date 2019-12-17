@@ -66,7 +66,6 @@ $(document).on('click', '.delete-file', function() {
     if(isDelete)
     {
         let id = $(this).data('id');
-        console.log(id);
         $.ajax({
             headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             dataType: "json",

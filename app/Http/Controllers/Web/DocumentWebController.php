@@ -55,6 +55,6 @@ class DocumentWebController extends Controller
     public function destroy(Request $request)
     {
         Document::where('id', '=', $request->id)->delete();
-        return 'deleted';
+        return response()->json(['succses'=>'Удалено'], 200); 
     }
 }
