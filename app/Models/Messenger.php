@@ -28,6 +28,6 @@ class Messenger extends Model
 
     public function lastMessageDirection()
     {
-        return $this->hasOne(UserToMessage::class, 'id')->latest()->first('direction');
+        return $this->hasOne(UserToMessage::class, 'id')->first('direction');
     }
 }
