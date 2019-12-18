@@ -72,7 +72,7 @@ class MessengerWebController extends Controller
             'direction' => 1
         ]);
 
-        $client = Client::where('id', '=', $request->i);
+        $client = Client::where('id', '=', $request->i)->first();
         if($client->device_token)
         {
             self::SendPush($client->device_token);
