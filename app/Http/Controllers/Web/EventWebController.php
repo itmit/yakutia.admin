@@ -104,8 +104,8 @@ class EventWebController extends Controller
      */
     public function destroy(Request $request)
     {
-        Event::where('id', '=', $request->id)->delete();
         UserToEvent::where('event_id', '=', $request->id)->delete();
+        Event::where('id', '=', $request->id)->delete();
         return response()->json(['succses'=>'Удалено'], 200); 
     }
 }
