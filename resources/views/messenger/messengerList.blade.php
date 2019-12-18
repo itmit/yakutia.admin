@@ -22,7 +22,7 @@
                     ?>
                     <tr data-href="messenger/{{ $item->id }}" style="cursor: pointer"
                         @if($chat != NULL && $chat->direction == 0)
-                        style="background-color: red"
+                        style="color: red"
                         @endif>
                         <td>{{ $client->name }}</td>
                         <td>{{ $client->email }}</td>
