@@ -21,7 +21,11 @@
                     <tr data-href="messenger/{{ $item->id }}" style="cursor: pointer">
                         <td>{{ $client->name }}</td>
                         <td>{{ $client->email }}</td>
-                        <td>{{ $item->lastMessageDirection() }}</td>
+                        @if(!$item->lastMessage())
+                        <td></td>
+                        @else
+                        <td>{{ $item->lastMessage()->created_at }}</td>
+                        @endif
                     </tr>
                 @endforeach
                 </tbody>

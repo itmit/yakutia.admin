@@ -26,8 +26,8 @@ class Messenger extends Model
         return $this->hasOne(Client::class, 'id')->first();
     }
 
-    public function lastMessageDirection()
+    public function lastMessage()
     {
-        return $this->hasOne(UserToMessage::class, 'messenger_id')->latest()->first('direction');
+        return $this->hasOne(UserToMessage::class, 'messenger_id')->latest()->first('direction', 'created_at');
     }
 }
