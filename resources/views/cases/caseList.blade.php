@@ -24,8 +24,8 @@
 
 <script>
 
-$(document).on('click', '.delete-news', function() {
-    let isDelete = confirm("Удалить новость? Данное действие невозможно отменить!");
+$(document).on('click', '.delete-case', function() {
+    let isDelete = confirm("Удалить кейс? Данное действие невозможно отменить!");
 
     if(isDelete)
     {
