@@ -99,25 +99,25 @@
         
                             {{-- <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li> --}}
         
-                            <li><a href="{{ route('auth.news.index') }}">Новости</a></li>
+                            <li style="width: 100%"><a href="{{ route('auth.news.index') }}">Новости</a></li>
         
                             @if($admin == 1)
         
-                            <li><a href="{{ route('auth.cases.index') }}">Кейсы/успешные практики</a></li>
+                            <li style="width: 100%"><a href="{{ route('auth.cases.index') }}">Кейсы/успешные практики</a></li>
         
-                            <li><a href="{{ route('auth.events.index') }}">События</a></li>
+                            <li style="width: 100%"><a href="{{ route('auth.events.index') }}">События</a></li>
         
-                            <li><a href="{{ route('auth.polls.index') }}">Онлайн голосование</a></li>
+                            <li style="width: 100%"><a href="{{ route('auth.polls.index') }}">Онлайн голосование</a></li>
         
-                            <li><a href="{{ route('auth.documents.index') }}">Документы</a></li>
+                            <li style="width: 100%"><a href="{{ route('auth.documents.index') }}">Документы</a></li>
         
-                            <li><a href="{{ route('auth.messenger.index') }}">Мессенджер</a></li>
+                            <li style="width: 100%"><a href="{{ route('auth.messenger.index') }}">Мессенджер</a></li>
         
-                            <li><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
+                            <li style="width: 100%"><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
         
                             @endif
 
-                            <li><a href="{{ route('auth.user.show', ['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
+                            <li style="width: 100%"><a href="{{ route('auth.user.show', ['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
                         </ul>
                     </div>
             </div>
