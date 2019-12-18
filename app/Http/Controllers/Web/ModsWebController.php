@@ -81,7 +81,7 @@ class ModsWebController extends Controller
      */
     public function destroy(Request $request)
     {
-        User::where('event_id', '=', $request->id)->delete();
+        User::where('id', '=', $request->id)->delete();
         return response()->json(['succses'=>'Удалено'], 200); 
     }
 }
