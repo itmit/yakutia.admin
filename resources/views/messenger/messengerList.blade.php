@@ -21,7 +21,7 @@
                     <tr data-href="messenger/{{ $item->id }}" style="cursor: pointer">
                         <td>{{ $client->name }}</td>
                         <td>{{ $client->email }}</td>
-                        <td>Время</td>
+                        <td>{{ $item->lastMessageDirection() }}</td>
                     </tr>
                 @endforeach
                 </tbody>
