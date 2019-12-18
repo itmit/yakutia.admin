@@ -17,14 +17,16 @@
                 @foreach($messengers as $item)
                     <?
                         $client = $item->client();
+                        $chat = null;
+                        $chat = $item->lastMessage();
                     ?>
                     <tr data-href="messenger/{{ $item->id }}" style="cursor: pointer">
                         <td>{{ $client->name }}</td>
                         <td>{{ $client->email }}</td>
-                        @if(!$item->lastMessage())
+                        @if(!$chat)
                         <td></td>
                         @else
-                        <td>{{ $item->lastMessage()->created_at }}</td>
+                        <td>{{ date('H:i:s d.m.Y', strtotime($chat->created_at->timezone('Europe/Moscow'))) }}</td>
                         @endif
                     </tr>
                 @endforeach
