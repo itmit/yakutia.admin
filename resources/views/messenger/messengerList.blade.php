@@ -23,7 +23,7 @@
                     <tr data-href="messenger/{{ $item->id }}"
                         @if($chat != NULL && $chat->direction == 0)
                         style="color: red; cursor: pointer"
-                        @elseif($chat != NULL && $chat->direction == 0)
+                        @elseif($chat != NULL && $chat->direction == 1)
                         style="cursor: pointer"
                         @endif
                     >
