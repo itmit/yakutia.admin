@@ -24,7 +24,7 @@
                         @if(!$item->lastMessage())
                         <td></td>
                         @else
-                        <td>{{ $item->lastMessage() }}</td>
+                        <td>{{ $item->lastMessage()->created_at }}</td>
                         @endif
                     </tr>
                 @endforeach
