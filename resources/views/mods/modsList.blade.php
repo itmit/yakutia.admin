@@ -19,7 +19,7 @@
                 <tbody>
                 @foreach($mods as $item)
                     <tr>
-                        <td><a href="mods/{{ $item->id }}"> {{ $item->name }} </a></td>
+                        <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
                         <td><i class="material-icons delete-mod" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
                     </tr>
