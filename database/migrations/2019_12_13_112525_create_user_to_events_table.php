@@ -19,7 +19,7 @@ class CreateUserToEventsTable extends Migration
             $table->bigInteger('event_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('clients');
             $table->foreign('event_id')->references('id')->on('events');
         });
     }

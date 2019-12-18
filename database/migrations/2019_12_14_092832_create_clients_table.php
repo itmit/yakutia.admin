@@ -21,7 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('type');
             $table->string('password');
             $table->rememberToken();
-            // $table->string('api_token', 60)->unique();
+            $table->string('device_token')->unique();
             $table->timestamps();
         });
     }
