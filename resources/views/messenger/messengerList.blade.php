@@ -21,7 +21,7 @@
                         $chat = $item->lastMessage();
                     ?>
                     <tr data-href="messenger/{{ $item->id }}" style="cursor: pointer"
-                        @if($chat->direction == 0)
+                        @if($chat != NULL && $chat->direction == 0)
                         style="background-color: red"
                         @endif>
                         <td>{{ $client->name }}</td>
