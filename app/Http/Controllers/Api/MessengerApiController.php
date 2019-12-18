@@ -22,7 +22,7 @@ class MessengerApiController extends ApiBaseController
 
         $messenger = Messenger::where('client_id', '=', $userId)->first('id');
 
-        $messages = UserToMessage::select('messenger_id', 'message', 'direction', 'created_at')->where('messenger_id', '=', $messenger->id)->orderBy('created_at', 'desc')->get()->toArray();
+        $messages = UserToMessage::select('messenger_id', 'message', 'direction', 'created_at')->where('messenger_id', '=', $messenger->id)->orderBy('created_at', 'asc')->get()->toArray();
 
         return $this->sendResponse($messages, 'Messages returned');
     }
