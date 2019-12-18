@@ -78,7 +78,7 @@ class MessengerWebController extends Controller
             self::SendPush($client->device_token);
         }
 
-        return self::show($request->i);
+        return route('auth.messenger/', ['id' => $request->i]);
     }
 
     private function SendPush($token)
