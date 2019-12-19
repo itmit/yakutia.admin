@@ -15,7 +15,7 @@ class DocumentApiController extends ApiBaseController
 
     public function index()
     {
-        $docs = Document::select('section', 'doc')->orderBy('section', 'desc')->toArray();
+        $docs = Document::select('section', 'doc')->orderBy('section', 'desc')->get()->toArray();
 
         return $this->sendResponse($docs, 'Messages returned');
     }
