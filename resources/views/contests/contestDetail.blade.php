@@ -20,7 +20,7 @@
                     <div class="thumbnail">
                     <a href="{{ $item->document }}">
                         <img src="{{ $item->document }}"style="width:100%">
-                        $item->document
+                        {{ $item->document }}
                     </a>
                     </div>
                 </div>
