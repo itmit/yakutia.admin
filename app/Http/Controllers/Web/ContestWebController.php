@@ -54,7 +54,7 @@ class ContestWebController extends Controller
         
         $validator = Validator::make($request->all(), [
             'contest_name' => 'required|min:3|max:191|string',
-            'contest_description' => 'required|min:3|max:20000',
+            'contest_description' => 'required|min:3|max:100000',
             'contest_level' => 'required'
         ]);
 
