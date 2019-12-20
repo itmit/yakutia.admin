@@ -11,7 +11,6 @@
 
             <p>
                 {!! htmlspecialchars_decode($contest->description) !!}
-                f
             </p>
 
             <div class="row">
