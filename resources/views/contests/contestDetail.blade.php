@@ -10,7 +10,8 @@
             <a href="../contests">Назад</a>
 
             <p>
-                {{ $contest->description }}
+                {!! htmlspecialchars_decode($contest->description) !!}
+                f
             </p>
 
             <div class="row">
