@@ -20,7 +20,7 @@
                     <div class="thumbnail">
                     <a href="{{ $item->document }}">
                         <img src="{{ $item->document }}"style="width:100%">
-                        {{ $item->document }}
+                        {{ substr(strrchr($item->document, '/'), 1) }}
                     </a>
                     </div>
                 </div>
