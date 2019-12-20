@@ -76,13 +76,13 @@ class ContestWebController extends Controller
             $path = $file->storeAs('public/contestDocuments', $file->getClientOriginalName());
             $url = Storage::url($path);
 
-            Document::create([
+            DocumentToContest::create([
                 'contest_id' => $contest->id,
                 'document' => $url,
             ]);
         }
 
-        return redirect()->route('auth.documents.index');
+        return redirect()->route('auth.contests.index');
     }
 
     /**
