@@ -23,7 +23,7 @@
 
     <div class="row form-group{{ $errors->has('contest_level') ? ' has-error' : '' }}">
         <div class="col-xs-12 col-sm-2">
-        <label for="contest_level" class="control-label text-tc">Текст</label>
+        <label for="contest_level" class="control-label text-tc">Уровень</label>
         </div>
 
         <div class="col-xs-12 col-sm-10">
@@ -42,7 +42,7 @@
 
     <div class="row form-group{{ $errors->has('contest_description') ? ' has-error' : '' }}">
         <div class="col-xs-12 col-sm-2">
-        <label for="contest_description" class="control-label text-tc">Место проведения мероприятия</label>
+        <label for="contest_description" class="control-label text-tc">Текст</label>
         </div>
 
         <div class="col-xs-12 col-sm-10">

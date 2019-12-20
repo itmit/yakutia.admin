@@ -29,7 +29,7 @@ class ContestWebController extends Controller
     {
         return view('contests.contestDetail', [
             'title' => 'Конкурс',
-            'contest' => Contest::where('id', '=', $id)->first(),
+            'contest' => Contest::where('id', '=', $id)->first('name', 'id', 'level', 'description'),
             'files' => DocumentToContest::where('contest_id', '=', $id)->get()
         ]);
     }
@@ -49,14 +49,36 @@ class ContestWebController extends Controller
      */
     public function store(Request $request)
     {
+        $request->contest_name = trim($request->case_head);
+        $request->contest_description = trim($request->case_body);
+        
+        $validator = Validator::make($request->all(), [
+            'contest_name' => 'required|min:3|max:100|string',
+            'contest_description' => 'required|min:3|max:20000',
+            'contest_level' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.cases.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $contest = Contest::create([
+            'name' => $request->contest_name,
+            'level' => $request->contest_level,
+            'description' => $request->contest_description,
+        ]);
+
         foreach($request->file('docs') as $file)
         {
-            $path = $file->storeAs('public/documents', $file->getClientOriginalName());
+            $path = $file->storeAs('public/contestDocuments', $file->getClientOriginalName());
             $url = Storage::url($path);
 
             Document::create([
-                'section' => $request->section,
-                'doc' => $url,
+                'contest_id' => $contest->id,
+                'document' => $url,
             ]);
         }
 
