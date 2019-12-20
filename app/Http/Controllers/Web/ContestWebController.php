@@ -71,16 +71,20 @@ class ContestWebController extends Controller
             'description' => $request->contest_description,
         ]);
 
-        foreach($request->file('docs') as $file)
+        if($contest != null)
         {
-            $path = $file->storeAs('public/contestDocuments', $file->getClientOriginalName());
-            $url = Storage::url($path);
-
-            DocumentToContest::create([
-                'contest_id' => $contest->id,
-                'document' => $url,
-            ]);
+            foreach($request->file('docs') as $file)
+            {
+                $path = $file->storeAs('public/contestDocuments', $file->getClientOriginalName());
+                $url = Storage::url($path);
+    
+                DocumentToContest::create([
+                    'contest_id' => $contest->id,
+                    'document' => $url,
+                ]);
+            }
         }
+        
 
         return redirect()->route('auth.contests.index');
     }
