@@ -50,8 +50,8 @@ class CasesWebController extends Controller
         $request->case_body = trim($request->case_body);
 
         $validator = Validator::make($request->all(), [
-            'case_head' => 'required|min:3|max:100|string',
-            'case_body' => 'required|min:3|max:20000',
+            'case_head' => 'required|min:3|max:191|string',
+            'case_body' => 'required|min:3|max:100000',
             'case_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 

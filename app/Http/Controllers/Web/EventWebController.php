@@ -51,8 +51,8 @@ class EventWebController extends Controller
         $request->event_body = trim($request->event_body);
 
         $validator = Validator::make($request->all(), [
-            'event_head' => 'required|min:3|max:100|string',
-            'event_body' => 'required|min:3|max:20000',
+            'event_head' => 'required|min:3|max:191|string',
+            'event_body' => 'required|min:3|max:100000',
             'event_date' => 'required|date',
             'event_place' => 'required|min:3|max:191|string',
         ]);
