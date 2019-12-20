@@ -60,7 +60,7 @@ class ContestWebController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                ->route('auth.cases.create')
+                ->route('auth.contests.create')
                 ->withErrors($validator)
                 ->withInput();
         }
