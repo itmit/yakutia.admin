@@ -13,7 +13,6 @@
                 <tr>
                     <th scope="col">Наименование</th>
                     <th scope="col">Уровень</th>
-                    <th scope="col">Дата начала</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
@@ -22,7 +21,6 @@
                     <tr>
                         <td><a href="contests/{{ $item->id }}"> {{ $item->name }} </a></td>
                         <td>{{ $item->level }}</td>
-                        {{-- <td>{{ date('d.m.Y', strtotime($item->date_start)) }}</td> --}}
                         <td><i class="material-icons delete-event" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
                     </tr>
                 @endforeach

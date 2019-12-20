@@ -19,7 +19,7 @@ class CreateDocumentToContestsTable extends Migration
             $table->string('document');
             $table->timestamps();
 
-            $table->foreign('contest_id')->references('id')->on('contests')->onDelete('cascade');
+            // $table->foreign('contest_id')->references('id')->on('contests')->onDelete('cascade');
         });
     }
 
