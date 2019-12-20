@@ -30,5 +30,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('messenger/send', 'Api\MessengerApiController@send');
 
     Route::get('document/index', 'Api\DocumentApiController@index');
+
+    Route::get('contests/index', 'Api\ContestApiController@index');
     
 });
