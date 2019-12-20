@@ -5,7 +5,7 @@
 <div class="col-sm-12 tabs-content">
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
-            <h2>{{ $contest->name }}</h2>
+            <h2>{{ $contest->name }} {{ $contest->level }}</h2>
 
             <a href="../contests">Назад</a>
 
