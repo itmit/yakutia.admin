@@ -33,6 +33,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
     Route::resource('documents', 'Web\DocumentWebController');
     Route::delete('documents/delete', 'Web\DocumentWebController@delete');
+
+    Route::resource('contests', 'Web\ContestWebController');
     
 });
 

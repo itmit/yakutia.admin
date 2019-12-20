@@ -102,6 +102,8 @@
                             <li style="width: 100%"><a href="{{ route('auth.news.index') }}">Новости</a></li>
         
                             @if($admin == 1)
+
+                            <li style="width: 100%"><a href="{{ route('auth.contests.index') }}">Конкурсы</a></li>
         
                             <li style="width: 100%"><a href="{{ route('auth.cases.index') }}">Кейсы/успешные практики</a></li>
         
