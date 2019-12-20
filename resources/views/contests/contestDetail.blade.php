@@ -18,8 +18,8 @@
 
                 <div class="col-md-4">
                     <div class="thumbnail">
-                    <a href="{{ $item->picture }}">
-                        <img src="{{ $item->picture }}"style="width:100%">
+                    <a href="{{ $item->document }}">
+                        <img src="{{ $item->document }}"style="width:100%">
                     </a>
                     </div>
                 </div>
