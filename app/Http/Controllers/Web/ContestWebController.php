@@ -49,8 +49,8 @@ class ContestWebController extends Controller
      */
     public function store(Request $request)
     {
-        $request->contest_name = trim($request->case_head);
-        $request->contest_description = trim($request->case_body);
+        $request->contest_name = trim($request->contest_name);
+        $request->contest_description = trim($request->contest_description);
         
         $validator = Validator::make($request->all(), [
             'contest_name' => 'required|min:3|max:100|string',
