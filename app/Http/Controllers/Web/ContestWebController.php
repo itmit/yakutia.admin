@@ -21,7 +21,7 @@ class ContestWebController extends Controller
     {
         return view('contests.contestsList', [
             'title' => 'Конкурсы',
-            'docs' => Contest::all()->sortByDesc('level')
+            'contests' => Contest::all()->sortByDesc('level')
         ]);
     }
 
