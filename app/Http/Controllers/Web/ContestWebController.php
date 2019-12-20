@@ -29,7 +29,7 @@ class ContestWebController extends Controller
     {
         return view('contests.contestDetail', [
             'title' => 'Конкурс',
-            'contest' => Contest::where('id', '=', $id)->first('name', 'id', 'level', 'description'),
+            'contest' => Contest::where('id', '=', $id)->first('name', 'level', 'description'),
             'files' => DocumentToContest::where('contest_id', '=', $id)->get()
         ]);
     }
