@@ -34,6 +34,13 @@ class ContestWebController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('contests.contestCreate', [
+            'title' => 'Создать конкурс'
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
