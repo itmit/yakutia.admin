@@ -25,6 +25,15 @@ class ContestWebController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+        return view('contests.contestDetail', [
+            'title' => 'Конкурс',
+            'contest' => Contest::where('id', '=', $id)->first(),
+            'files' => DocumentToContest::where('contest_id', '=', $id)->get()
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
