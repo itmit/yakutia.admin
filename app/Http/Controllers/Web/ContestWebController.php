@@ -93,7 +93,8 @@ class ContestWebController extends Controller
      */
     public function destroy(Request $request)
     {
-        Document::where('id', '=', $request->id)->delete();
+        DocumentToContest::where('contest_id', '=', $request->id)->delete();
+        Contest::where('id', '=', $request->id)->delete();
         return response()->json(['succses'=>'Удалено'], 200); 
     }
 }

@@ -21,7 +21,7 @@
                     <tr>
                         <td><a href="contests/{{ $item->id }}"> {{ $item->name }} </a></td>
                         <td>{{ $item->level }}</td>
-                        <td><i class="material-icons delete-event" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
+                        <td><i class="material-icons delete-contest" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -35,24 +35,24 @@
 $(document).on('click', '.delete-contest', function() {
     let isDelete = confirm("Удалить конкурс? Данное действие невозможно отменить!");
 
-    // if(isDelete)
-    // {
-    //     let id = $(this).data('id');
-    //     $.ajax({
-    //         headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-    //         dataType: "json",
-    //         data    : { id: id },
-    //         url     : 'events/delete',
-    //         method    : 'delete',
-    //         success: function (response) {
-    //             $(this).closest('tr').remove();
-    //             console.log('Удалено!');
-    //         },
-    //         error: function (xhr, err) { 
-    //             console.log("Error: " + xhr + " " + err);
-    //         }
-    //     });
-    // }
+    if(isDelete)
+    {
+        let id = $(this).data('id');
+        $.ajax({
+            headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            dataType: "json",
+            data    : { id: id },
+            url     : 'contests/delete',
+            method    : 'delete',
+            success: function (response) {
+                $(this).closest('tr').remove();
+                console.log('Удалено!');
+            },
+            error: function (xhr, err) { 
+                console.log("Error: " + xhr + " " + err);
+            }
+        });
+    }
 });
 
 </script>
