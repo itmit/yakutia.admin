@@ -37,6 +37,7 @@ $(document).on('click', '.delete-contest', function() {
 
     if(isDelete)
     {
+        let place = $(this).closest('tr');
         let id = $(this).data('id');
         $.ajax({
             headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
@@ -45,7 +46,7 @@ $(document).on('click', '.delete-contest', function() {
             url     : 'contests/delete',
             method    : 'delete',
             success: function (response) {
-                $(this).closest('tr').remove();
+                place.remove();
                 console.log('Удалено!');
             },
             error: function (xhr, err) { 
