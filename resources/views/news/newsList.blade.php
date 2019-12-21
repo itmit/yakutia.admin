@@ -28,6 +28,7 @@ $(document).on('click', '.delete-news', function() {
 
     if(isDelete)
     {
+        let elem = $(this).closest('row');
         let id = $(this).data('id');
         $.ajax({
             headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
