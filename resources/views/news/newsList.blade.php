@@ -28,7 +28,7 @@ $(document).on('click', '.delete-news', function() {
 
     if(isDelete)
     {
-        let elem = $(this).closest('row');
+        let elem = $(this).closest('.row');
         let id = $(this).data('id');
         $.ajax({
             headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
@@ -37,7 +37,7 @@ $(document).on('click', '.delete-news', function() {
             url     : 'news/delete',
             method    : 'delete',
             success: function (response) {
-                console.log(elem.html());
+                // console.log(elem.html());
                 elem.remove();
                 console.log('Удалено!');
             },
