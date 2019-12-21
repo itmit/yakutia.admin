@@ -29,6 +29,7 @@ $(document).on('click', '.delete-case', function() {
 
     if(isDelete)
     {
+        let elem = $(this).closest('.row');
         let id = $(this).data('id');
         $.ajax({
             headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
@@ -37,7 +38,7 @@ $(document).on('click', '.delete-case', function() {
             url     : 'cases/delete',
             method    : 'delete',
             success: function (response) {
-                $(this).closest('.row').remove();
+                elem.remove();
                 console.log('Удалено!');
             },
             error: function (xhr, err) { 
