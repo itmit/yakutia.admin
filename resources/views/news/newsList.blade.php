@@ -37,6 +37,7 @@ $(document).on('click', '.delete-news', function() {
             url     : 'news/delete',
             method    : 'delete',
             success: function (response) {
+                console.log(elem.html());
                 elem.remove();
                 console.log('Удалено!');
             },
