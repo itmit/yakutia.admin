@@ -32,5 +32,9 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('document/index', 'Api\DocumentApiController@index');
 
     Route::get('contests/index', 'Api\ContestApiController@index');
+
+    Route::post('poll/getPollList', 'Api\PollApiController@getPollList');
+    Route::post('poll/getPollQuestionList', 'Api\PollApiController@getPollQuestionList');
+    Route::post('poll/passPoll', 'Api\PollApiController@passPoll');
     
 });
