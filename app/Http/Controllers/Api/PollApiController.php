@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use App\Poll;
-use App\PollQuestions;
-use App\PollQuestionAnswers;
-use App\PollQuestionAnswerUsers;
-use App\UserToPoll;
+use App\Models\Poll;
+use App\Models\PollQuestions;
+use App\Models\PollQuestionAnswers;
+use App\Models\PollQuestionAnswerUsers;
+use App\Models\UserToPoll;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
