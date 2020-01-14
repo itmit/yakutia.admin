@@ -72,7 +72,7 @@ class ContactWebController extends Controller
             'phone' => $request->сontact_phone,
         ]);    
 
-        return redirect()->route('auth.сontacts.index');
+        return redirect()->route('auth.contacts.index');
     }
 
     // /**
