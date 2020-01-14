@@ -115,7 +115,7 @@
 
                             <li style="width: 100%"><a href="{{ route('auth.documents.index') }}">Президентские гранты</a></li>
 
-                            <li style="width: 100%"><a href="{{ route('auth.documents.index') }}">Контакты</a></li>
+                            <li style="width: 100%"><a href="{{ route('auth.contacts.index') }}">Контакты</a></li>
         
                             <li style="width: 100%"><a href="{{ route('auth.messenger.index') }}">Мессенджер</a></li>
         

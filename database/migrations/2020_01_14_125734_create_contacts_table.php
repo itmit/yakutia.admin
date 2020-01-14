@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserToPolls extends Migration
+class CreateContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateUserToPolls extends Migration
      */
     public function up()
     {
-        Schema::create('user_to_polls', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('poll_id')->unsigned();
+            $table->string('name');
+            $table->string('supervisor');
+            $table->string('adress');
+            $table->string('phone');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('clients');
-            $table->foreign('poll_id')->references('id')->on('polls');
         });
     }
 
@@ -31,6 +30,6 @@ class CreateUserToPolls extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_to_polls');
+        Schema::dropIfExists('contacts');
     }
 }

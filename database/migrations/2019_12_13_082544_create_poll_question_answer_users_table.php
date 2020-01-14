@@ -22,7 +22,7 @@ class CreatePollQuestionAnswerUsersTable extends Migration
             $table->timestamps();
 
             $table->foreign('answer_id')->references('id')->on('poll_question_answers');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('clients');
         });
     }
 
