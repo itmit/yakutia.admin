@@ -33,60 +33,46 @@ class ContactWebController extends Controller
     //     ]);
     // }
 
-    // public function create()
-    // {
-    //     return view('contests.contestCreate', [
-    //         'title' => 'Создать конкурс'
-    //     ]);
-    // }
+    public function create()
+    {
+        return view('contacts.contacts', [
+            'title' => 'Создать контакт'
+        ]);
+    }
 
-    // /**
-    //  * Store a newly created resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function store(Request $request)
-    // {
-    //     $request->contest_name = trim($request->contest_name);
-    //     $request->contest_description = trim($request->contest_description);
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->contest_name = trim($request->contest_name);
+        $request->contest_description = trim($request->contest_description);
         
-    //     $validator = Validator::make($request->all(), [
-    //         'contest_name' => 'required|min:3|max:191|string',
-    //         'contest_description' => 'required|min:3|max:100000',
-    //         'contest_level' => 'required'
-    //     ]);
+        $validator = Validator::make($request->all(), [
+            'сontact_name' => 'required|min:3|max:191|string',
+            'сontact_supervisor' => 'required|min:3|max:191',
+            'сontact_adress' => 'required',
+            'сontact_phone' => 'required'
+        ]);
 
-    //     if ($validator->fails()) {
-    //         return redirect()
-    //             ->route('auth.contests.create')
-    //             ->withErrors($validator)
-    //             ->withInput();
-    //     }
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.сontacts.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-    //     $contest = Contest::create([
-    //         'name' => $request->contest_name,
-    //         'level' => $request->contest_level,
-    //         'description' => $request->contest_description,
-    //     ]);
+        $contest = Contact::create([
+            'name' => $request->contest_name,
+            'level' => $request->contest_level,
+            'description' => $request->contest_description,
+        ]);    
 
-    //     if($contest != null)
-    //     {
-    //         foreach($request->file('docs') as $file)
-    //         {
-    //             $path = $file->storeAs('public/contestDocuments', $file->getClientOriginalName());
-    //             $url = Storage::url($path);
-    
-    //             DocumentToContest::create([
-    //                 'contest_id' => $contest->id,
-    //                 'document' => $url,
-    //             ]);
-    //         }
-    //     }
-        
-
-    //     return redirect()->route('auth.contests.index');
-    // }
+        return redirect()->route('auth.сontacts.index');
+    }
 
     // /**
     //  * Remove the specified resource from storage.
