@@ -6,21 +6,25 @@
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
             <div class="group-btn-card">
-                <a href="{{ route('auth.contests.create') }}" class="btn-card">Создать конкурс</a>
+                <a href="{{ route('auth.contacts.create') }}" class="btn-card">Создать контакт</a>
             </div>
             <table class="table policy-table">
                 <thead>
                 <tr>
                     <th scope="col">Наименование</th>
-                    <th scope="col">Уровень</th>
+                    <th scope="col">Руководитель</th>
+                    <th scope="col">Адрес</th>
+                    <th scope="col">Телефон</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($contests as $item)
+                @foreach($contacts as $item)
                     <tr>
-                        <td><a href="contests/{{ $item->id }}"> {{ $item->name }} </a></td>
-                        <td>{{ $item->level }}</td>
+                        <td><a href="contacts/{{ $item->id }}"> {{ $item->name }} </a></td>
+                        <td>{{ $item->supervisor }}</td>
+                        <td>{{ $item->adress }}</td>
+                        <td>{{ $item->phone }}</td>
                         <td><i class="material-icons delete-contest" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
                     </tr>
                 @endforeach
