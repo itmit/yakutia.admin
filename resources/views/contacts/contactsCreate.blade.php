@@ -26,7 +26,7 @@
         <label for="сontact_supervisor" class="control-label text-tc">Руководитель</label>
         </div>
 
-        <div class="col-xs-12 col-sm-9>
+        <div class="col-xs-12 col-sm-9">
             <input id="сontact_supervisor" type="text" class="form-control" name="сontact_supervisor" value="{{ old('сontact_supervisor') }}" required maxlength="191">
 
             @if ($errors->has('сontact_supervisor'))
