@@ -48,8 +48,8 @@ class ContactWebController extends Controller
      */
     public function store(Request $request)
     {
-        $request->contest_name = trim($request->contest_name);
-        $request->contest_description = trim($request->contest_description);
+        $request->сontact_name = trim($request->сontact_name);
+        $request->сontact_supervisor = trim($request->сontact_supervisor);
         
         $validator = Validator::make($request->all(), [
             'сontact_name' => 'required|min:3|max:191|string',
@@ -66,9 +66,10 @@ class ContactWebController extends Controller
         }
 
         $contest = Contact::create([
-            'name' => $request->contest_name,
-            'level' => $request->contest_level,
-            'description' => $request->contest_description,
+            'name' => $request->сontact_name,
+            'supervisor' => $request->сontact_supervisor,
+            'adress' => $request->сontact_adress,
+            'phone' => $request->сontact_phone,
         ]);    
 
         return redirect()->route('auth.сontacts.index');
