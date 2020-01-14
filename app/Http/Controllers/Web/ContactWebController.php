@@ -35,7 +35,7 @@ class ContactWebController extends Controller
 
     public function create()
     {
-        return view('contacts.contacts', [
+        return view('contacts.contactsCreate', [
             'title' => 'Создать контакт'
         ]);
     }
