@@ -75,16 +75,15 @@ class ContactWebController extends Controller
         return redirect()->route('auth.contacts.index');
     }
 
-    // /**
-    //  * Remove the specified resource from storage.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function destroy(Request $request)
-    // {
-    //     DocumentToContest::where('contest_id', '=', $request->id)->delete();
-    //     Contest::where('id', '=', $request->id)->delete();
-    //     return response()->json(['succses'=>'Удалено'], 200); 
-    // }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request)
+    {
+        Contact::where('id', '=', $request->id)->delete();
+        return response()->json(['succses'=>'Удалено'], 200); 
+    }
 }

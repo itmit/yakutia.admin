@@ -25,7 +25,7 @@
                         <td>{{ $item->supervisor }}</td>
                         <td>{{ $item->adress }}</td>
                         <td>{{ $item->phone }}</td>
-                        <td><i class="material-icons delete-contest" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
+                        <td><i class="material-icons delete-contact" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -34,24 +34,23 @@
     </div>
 </div>
 
-{{-- <script>
+<script>
 
-$(document).on('click', '.delete-contest', function() {
-    let isDelete = confirm("Удалить конкурс? Данное действие невозможно отменить!");
+$(document).on('click', '.delete-contact', function() {
+    let isDelete = confirm("Удалить контакт? Данное действие невозможно отменить!");
 
     if(isDelete)
     {
-        let place = $(this).closest('tr');
+        let contact = $(this).closest('tr');
         let id = $(this).data('id');
         $.ajax({
             headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             dataType: "json",
             data    : { id: id },
-            url     : 'contests/delete',
+            url     : 'contacts/delete',
             method    : 'delete',
             success: function (response) {
-                place.remove();
-                console.log('Удалено!');
+                contact.remove();
             },
             error: function (xhr, err) { 
                 console.log("Error: " + xhr + " " + err);
@@ -60,6 +59,6 @@ $(document).on('click', '.delete-contest', function() {
     }
 });
 
-</script> --}}
+</script>
 
 @endsection
