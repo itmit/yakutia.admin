@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Models\Grant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -20,7 +20,7 @@ class GrantWebController extends Controller
     {
         return view('grants.grants', [
             'title' => 'Президентские гранты',
-            // 'contacts' => Contact::all()->sortByDesc('created_at')
+            'grant' => Grant::all()->latest()->first()
         ]);
     }
 
@@ -32,31 +32,24 @@ class GrantWebController extends Controller
      */
     public function store(Request $request)
     {
-        $request->сontact_name = trim($request->сontact_name);
-        $request->сontact_supervisor = trim($request->сontact_supervisor);
+        $request->grant = trim($request->grant);
         
         $validator = Validator::make($request->all(), [
-            'сontact_name' => 'required|min:3|max:191|string',
-            'сontact_supervisor' => 'required|min:3|max:191',
-            'сontact_adress' => 'required',
-            'сontact_phone' => 'required'
+            'grant' => 'required|min:3|max:100000|string',
         ]);
 
         if ($validator->fails()) {
             return redirect()
-                ->route('auth.сontacts.create')
+                ->route('auth.grants.index')
                 ->withErrors($validator)
                 ->withInput();
         }
 
         $contest = Contact::create([
-            'name' => $request->сontact_name,
-            'supervisor' => $request->сontact_supervisor,
-            'adress' => $request->сontact_adress,
-            'phone' => $request->сontact_phone,
+            'grant' => $request->grant,
         ]);    
 
-        return redirect()->route('auth.contacts.index');
+        return redirect()->route('auth.grants.index');
     }
 
     /**
