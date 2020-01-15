@@ -27,7 +27,6 @@
         </div>
 
         <div class="col-xs-12 col-sm-9">
-            <input>
             <textarea id="faq_answer" type="text" class="form-control" name="faq_answer" required></textarea>
 
             @if ($errors->has('faq_answer'))
