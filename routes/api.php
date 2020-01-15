@@ -40,4 +40,4 @@ Route::group(['middleware' => 'auth:api'], function(){
     // Route::get('contacts/index', 'Api\ContactWebController@index');
 });
 
-Route::get('contacts/index', 'Api\ContactWebController@index');
+Route::get('contacts/index', 'Api\ContactApiController@index');
