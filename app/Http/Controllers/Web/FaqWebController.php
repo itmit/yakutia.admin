@@ -44,7 +44,7 @@ class FaqWebController extends Controller
         
         $validator = Validator::make($request->all(), [
             'faq_question' => 'required|min:3|max:191|string',
-            'faq_answer' => 'required|min:3|max:191'
+            'faq_answer' => 'required|min:3|max:10000'
         ]);
 
         if ($validator->fails()) {

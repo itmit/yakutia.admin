@@ -27,7 +27,8 @@
         </div>
 
         <div class="col-xs-12 col-sm-9">
-            <input id="faq_answer" type="text" class="form-control" name="faq_answer" value="{{ old('faq_answer') }}" required maxlength="191">
+            <input>
+            <textarea id="faq_answer" type="text" class="form-control" name="faq_answer" required></textarea>
 
             @if ($errors->has('faq_answer'))
                 <span class="help-block">
