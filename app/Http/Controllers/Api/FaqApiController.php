@@ -15,7 +15,7 @@ class FaqApiController extends ApiBaseController
 
     public function index()
     {
-        $faq = Contact::select('question', 'answer', 'created_at')->orderBy('created_at', 'desc')->get()->toArray();
+        $faq = FAQ::select('question', 'answer', 'created_at')->orderBy('created_at', 'desc')->get()->toArray();
 
         return $this->sendResponse($faq, 'Contacts returned');
     }
