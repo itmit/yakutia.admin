@@ -33,7 +33,7 @@
 <script>
 
 $(document).on('click', '.delete-faq', function() {
-    let isDelete = confirm("Удалить контакт? Данное действие невозможно отменить!");
+    let isDelete = confirm("Удалить вопрос? Данное действие невозможно отменить!");
 
     if(isDelete)
     {
