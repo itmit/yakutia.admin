@@ -45,7 +45,7 @@ class GrantWebController extends Controller
                 ->withInput();
         }
 
-        $contest = Contact::create([
+        $contest = Grant::create([
             'grant' => $request->grant,
         ]);    
 
