@@ -41,7 +41,7 @@ class FaqWebController extends Controller
     {
         $request->faq_question = trim($request->faq_question);
         $request->faq_answer = trim($request->faq_answer);
-        $request->faq_answer = htmlspecialchars_decode($request->faq_answer);
+        $request->faq_answer = htmlspecialchars($request->faq_answer);
         
         $validator = Validator::make($request->all(), [
             'faq_question' => 'required|min:3|max:191|string',
