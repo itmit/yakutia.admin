@@ -36,6 +36,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
     Route::resource('contests', 'Web\ContestWebController');
 
+    Route::resource('contacts', 'Web\ContactWebController');
+
     Route::resource('grants', 'Web\GrantWebController');
     
 });
