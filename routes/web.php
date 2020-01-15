@@ -39,6 +39,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::resource('contacts', 'Web\ContactWebController');
 
     Route::resource('grants', 'Web\GrantWebController');
+
+    Route::resource('faq', 'Web\FAQWebController');
     
 });
 

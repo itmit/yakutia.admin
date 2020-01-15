@@ -24,22 +24,6 @@ class GrantWebController extends Controller
         ]);
     }
 
-    // public function show($id)
-    // {
-    //     return view('contests.contestDetail', [
-    //         'title' => 'Конкурс',
-    //         'contest' => Contest::where('id', '=', $id)->first(),
-    //         'files' => DocumentToContest::where('contest_id', '=', $id)->get()
-    //     ]);
-    // }
-
-    public function create()
-    {
-        return view('contacts.contactsCreate', [
-            'title' => 'Создать контакт'
-        ]);
-    }
-
     /**
      * Store a newly created resource in storage.
      *
