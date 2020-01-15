@@ -6,7 +6,7 @@
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
             <form class="form-horizontal" method="POST" action="{{ route('auth.grants.store') }}" enctype="multipart/form-data">
-                <textarea name="grant" cols="30" rows="100" style="width: 100%">{{ $grant }}</textarea>
+                <textarea name="grant" style="width: 100%">{{ $grant }}</textarea>
                 <input type="submit" value="Сохранить">
             </form>
         </div>
