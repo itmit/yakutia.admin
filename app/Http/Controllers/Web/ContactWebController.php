@@ -20,7 +20,7 @@ class ContactWebController extends Controller
     {
         return view('contacts.contactsList', [
             'title' => 'Конкурсы',
-            'contacts' => Contact::all()->sortBy('created_at', 'desc')
+            'contacts' => Contact::all()->sortBy('created_at')
         ]);
     }
 
