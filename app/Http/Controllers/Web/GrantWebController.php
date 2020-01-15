@@ -20,7 +20,7 @@ class GrantWebController extends Controller
     {
         return view('grants.grants', [
             'title' => 'Президентские гранты',
-            'grant' => Grant::all()->latest()->first()
+            'grant' => Grant::select('*')->latest()->first()
         ]);
     }
 
