@@ -59,7 +59,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-9">
-            <input id="сontact_phone" type="text" class="form-control" name="сontact_phone" value="{{ old('сontact_phone') }}" required maxlength="191">
+            <input id="сontact_phone" id="сontact_phone" type="text" class="form-control" name="сontact_phone" value="{{ old('сontact_phone') }}" required maxlength="191">
 
             @if ($errors->has('сontact_phone'))
                 <span class="help-block">
@@ -76,7 +76,12 @@
             </button>
         </div>
     </div>
-
 </form>
+
+<script>
+$(function(){
+    $("#сontact_phone").mask("+7 (999) 999-9999");
+});
+</script>
 
 @endsection
