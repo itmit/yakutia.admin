@@ -114,7 +114,7 @@
         
                             <li style="width: 100%"><a href="{{ route('auth.documents.index') }}">Документы</a></li>
 
-                            <li style="width: 100%"><a href="{{ route('auth.documents.index') }}">Президентские гранты</a></li>
+                            <li style="width: 100%"><a href="{{ route('auth.grants.index') }}">Президентские гранты</a></li>
 
                             <li style="width: 100%"><a href="{{ route('auth.contacts.index') }}">Контакты</a></li>
         
