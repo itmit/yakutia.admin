@@ -20,7 +20,7 @@
                 @foreach($faq as $item)
                     <tr>
                         <td>{{ $item->question }}</td>
-                        <td>{{ $item->answer }}</td>
+                        <td>{{ htmlspecialchars_decode($item->answer) }}</td>
                         <td><i class="material-icons delete-faq" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
                     </tr>
                 @endforeach
