@@ -39,31 +39,27 @@ class FaqWebController extends Controller
      */
     public function store(Request $request)
     {
-        $request->сontact_name = trim($request->сontact_name);
-        $request->сontact_supervisor = trim($request->сontact_supervisor);
+        $request->faq_question = trim($request->faq_question);
+        $request->faq_answer = trim($request->faq_answer);
         
         $validator = Validator::make($request->all(), [
-            'сontact_name' => 'required|min:3|max:191|string',
-            'сontact_supervisor' => 'required|min:3|max:191',
-            'сontact_adress' => 'required',
-            'сontact_phone' => 'required'
+            'faq_question' => 'required|min:3|max:191|string',
+            'faq_answer' => 'required|min:3|max:191'
         ]);
 
         if ($validator->fails()) {
             return redirect()
-                ->route('auth.сontacts.create')
+                ->route('auth.faq.create')
                 ->withErrors($validator)
                 ->withInput();
         }
 
-        $contest = Contact::create([
-            'name' => $request->сontact_name,
-            'supervisor' => $request->сontact_supervisor,
-            'adress' => $request->сontact_adress,
-            'phone' => $request->сontact_phone,
+        $contest = FAQ::create([
+            'question' => $request->faq_question,
+            'answer' => $request->faq_answer
         ]);    
 
-        return redirect()->route('auth.contacts.index');
+        return redirect()->route('auth.faq.index');
     }
 
     /**
