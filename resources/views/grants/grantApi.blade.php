@@ -5,7 +5,9 @@
 <div class="col-sm-12 tabs-content">
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
-            <textarea name="grant" style="width: 100%">@if($grant){{ $grant->grant }}@endif</textarea>
+            @if($grant)
+            <p>{{ $grant->grant }}</p>
+            @endif
         </div>
     </div>
 </div>
