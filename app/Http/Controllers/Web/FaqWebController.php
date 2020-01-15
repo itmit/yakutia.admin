@@ -70,7 +70,7 @@ class FaqWebController extends Controller
      */
     public function destroy(Request $request)
     {
-        Contact::where('id', '=', $request->id)->delete();
+        FAQ::where('id', '=', $request->id)->delete();
         return response()->json(['succses'=>'Удалено'], 200); 
     }
 }

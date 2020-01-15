@@ -32,29 +32,29 @@
 
 <script>
 
-// $(document).on('click', '.delete-contact', function() {
-//     let isDelete = confirm("Удалить контакт? Данное действие невозможно отменить!");
+$(document).on('click', '.delete-faq', function() {
+    let isDelete = confirm("Удалить контакт? Данное действие невозможно отменить!");
 
-//     if(isDelete)
-//     {
-//         let contact = $(this).closest('tr');
-//         let id = $(this).data('id');
-//         $.ajax({
-//             headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-//             dataType: "json",
-//             data    : { id: id },
-//             url     : 'contacts/delete',
-//             method    : 'delete',
-//             success: function (response) {
-//                 contact.remove();
-//             },
-//             error: function (xhr, err) { 
-//                 console.log("Error: " + xhr + " " + err);
-//             }
-//         });
-//     }
-// });
+    if(isDelete)
+    {
+        let faq = $(this).closest('tr');
+        let id = $(this).data('id');
+        $.ajax({
+            headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            dataType: "json",
+            data    : { id: id },
+            url     : 'faq/delete',
+            method    : 'delete',
+            success: function (response) {
+                faq.remove();
+            },
+            error: function (xhr, err) { 
+                console.log("Error: " + xhr + " " + err);
+            }
+        });
+    }
+});
 
-// </script>
+</script>
 
 @endsection
