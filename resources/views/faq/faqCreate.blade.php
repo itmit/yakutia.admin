@@ -27,7 +27,14 @@
         </div>
 
         <div class="col-xs-12 col-sm-9">
-            <textarea id="faq_answer" type="text" class="form-control" name="faq_answer"></textarea>
+            <div class="js-textarea">
+            </div>
+            <script>
+                $("document").ready(function ()
+                {
+                    $(".js-textarea").html('<textarea id="faq_answer" type="text" class="form-control" name="faq_answer"></textarea>');
+                });
+            </script>
 
             @if ($errors->has('faq_answer'))
                 <span class="help-block">
