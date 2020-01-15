@@ -40,7 +40,7 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
     Route::resource('grants', 'Web\GrantWebController');
 
-    Route::resource('faq', 'Web\FAQWebController');
+    Route::resource('faq', 'Web\FaqWebController');
     
 });
 
