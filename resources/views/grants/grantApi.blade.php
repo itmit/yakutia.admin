@@ -6,7 +6,7 @@
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
             @if($grant)
-            <p>{{ $grant->grant }}</p>
+            <p>{!! htmlspecialchars_decode($grant->grant) !!}</p>
             @endif
         </div>
     </div>
