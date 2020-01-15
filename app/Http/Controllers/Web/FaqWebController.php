@@ -26,8 +26,8 @@ class FaqWebController extends Controller
 
     public function create()
     {
-        return view('contacts.contactsCreate', [
-            'title' => 'Создать контакт'
+        return view('faq.faqCreate', [
+            'title' => 'Создать вопрос-ответ'
         ]);
     }
 
