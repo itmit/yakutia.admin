@@ -100,33 +100,33 @@
         
                             {{-- <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li> --}}
         
-                            <li style="width: 100%"><a href="{{ route('auth.news.index') }}">Новости</a></li>
+                            <li name="news" style="width: 100%"><a href="{{ route('auth.news.index') }}">Новости</a></li>
         
                             @if($admin == 1)
 
-                            <li style="width: 100%"><a href="{{ route('auth.contests.index') }}">Конкурсы</a></li>
+                            <li name="contests" style="width: 100%"><a href="{{ route('auth.contests.index') }}">Конкурсы</a></li>
         
-                            <li style="width: 100%"><a href="{{ route('auth.cases.index') }}">Кейсы/успешные практики</a></li>
+                            <li name="cases" style="width: 100%"><a href="{{ route('auth.cases.index') }}">Кейсы/успешные практики</a></li>
         
-                            <li style="width: 100%"><a href="{{ route('auth.events.index') }}">События</a></li>
+                            <li name="events" style="width: 100%"><a href="{{ route('auth.events.index') }}">События</a></li>
         
-                            <li style="width: 100%"><a href="{{ route('auth.polls.index') }}">Онлайн голосование</a></li>
+                            <li name="polls" style="width: 100%"><a href="{{ route('auth.polls.index') }}">Онлайн голосование</a></li>
         
-                            <li style="width: 100%"><a href="{{ route('auth.documents.index') }}">Документы</a></li>
+                            <li name="documents" style="width: 100%"><a href="{{ route('auth.documents.index') }}">Документы</a></li>
 
-                            <li style="width: 100%"><a href="{{ route('auth.grants.index') }}">Президентские гранты</a></li>
+                            <li name="grants" style="width: 100%"><a href="{{ route('auth.grants.index') }}">Президентские гранты</a></li>
 
-                            <li style="width: 100%"><a href="{{ route('auth.contacts.index') }}">Контакты</a></li>
+                            <li name="contacts" style="width: 100%"><a href="{{ route('auth.contacts.index') }}">Контакты</a></li>
 
-                            <li style="width: 100%"><a href="{{ route('auth.faq.index') }}">Вопрос-ответ</a></li>
+                            <li name="faq" style="width: 100%"><a href="{{ route('auth.faq.index') }}">Вопрос-ответ</a></li>
         
-                            <li style="width: 100%"><a href="{{ route('auth.messenger.index') }}">Мессенджер</a></li>
+                            <li name="messenger" style="width: 100%"><a href="{{ route('auth.messenger.index') }}">Мессенджер</a></li>
         
-                            <li style="width: 100%"><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
+                            <li name="mods" style="width: 100%"><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
         
                             @endif
 
-                            <li style="width: 100%"><a href="{{ route('auth.user.show', ['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
+                            <li name="user" style="width: 100%"><a href="{{ route('auth.user.show', ['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
                         </ul>
                     </div>
             </div>
