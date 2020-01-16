@@ -138,5 +138,61 @@
 </div>
 
 <!-- Scripts -->
+<script>
+    $(document).ready(function() {
+
+        let pathname = window.location.pathname;
+
+        switch(pathname.split('/')[1]) {
+        case 'news':
+            $( "li[name='news']" ).addClass( "active" );
+            break;
+
+        case 'contests':
+            $( "li[name='contests']" ).addClass( "active" );
+            break;
+
+        case 'cases':
+            $( "li[name='cases']" ).addClass( "active" );
+            break;
+
+        case 'events':
+            $( "li[name='events']" ).addClass( "active" );
+            break;
+
+        case 'polls':
+            $( "li[name='polls']" ).addClass( "active" );
+            break;
+
+        case 'documents':
+            $( "li[name='documents']" ).addClass( "active" );
+            break;
+
+        case 'grants':
+            $( "li[name='grants']" ).addClass( "active" );
+            break;
+
+        case 'contacts':
+            $( "li[name='contacts']" ).addClass( "active" );
+            break;
+
+        case 'faq':
+            $( "li[name='faq']" ).addClass( "active" );
+            break;
+
+        case 'messenger':
+            $( "li[name='messenger']" ).addClass( "active" );
+            break;
+
+        case 'mods':
+            $( "li[name='mods']" ).addClass( "active" );
+            break;
+
+        case 'user':
+            $( "li[name='user']" ).addClass( "active" );
+            break;
+        }
+    })
+</script>
 </body>
 </html>
