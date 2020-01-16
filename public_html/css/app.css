@@ -11,6 +11,10 @@
     border-bottom: 1px solid #a3522d!important;
 }
 
+li {
+    text-align: center;
+}
+
 .navbar-tc {
     background-color: #f7ecdd!important;
     border-bottom: 1px solid #decfba!important;
