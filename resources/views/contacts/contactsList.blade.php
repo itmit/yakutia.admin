@@ -6,7 +6,7 @@
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
             <div class="group-btn-card">
-                <a href="{{ route('auth.contacts.create') }}" class="btn-card">Создать контакт</a>
+                <a href="{{ route('auth.contacts.create') }}" class="btn btn-primary">Создать контакт</a>
             </div>
             <table class="table policy-table">
                 <thead>

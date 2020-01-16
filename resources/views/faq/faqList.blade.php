@@ -6,7 +6,7 @@
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
             <div class="group-btn-card">
-                <a href="{{ route('auth.faq.create') }}" class="btn-card">Создать пару вопрос-ответ</a>
+                <a href="{{ route('auth.faq.create') }}" class="btn btn-primary">Создать пару вопрос-ответ</a>
             </div>
             <table class="table policy-table">
                 <thead>

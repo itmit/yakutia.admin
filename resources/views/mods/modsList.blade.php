@@ -6,7 +6,7 @@
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
             <div class="group-btn-card">
-                <a href="{{ route('auth.mods.create') }}" class="btn-card">Создать модератора</a>
+                <a href="{{ route('auth.mods.create') }}" class="btn btn-primary">Создать модератора</a>
             </div>
             <table class="table policy-table">
                 <thead>
