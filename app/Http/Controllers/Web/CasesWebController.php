@@ -100,7 +100,7 @@ class CasesWebController extends Controller
         return view('cases.caseEdit', [
             'title' => 'Редактировать кейс',
             'id' => $id,
-            'contest' => $case
+            'case' => $case
         ]);
     }
 
