@@ -23,6 +23,8 @@
                 <tr>
                     <th scope="col">Имя</th>
                     <th scope="col">Электронная почта</th>
+                    <th scope="col">Телефон</th>
+                    <th scope="col">Организация</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -30,6 +32,8 @@
                     <tr>
                         <td>{{ $item['name']}}</td>
                         <td>{{ $item['email'] }}</td>
+                        <td>{{ $item['phone']}}</td>
+                        <td>{{ $item['organization'] }}</td>
                     </tr>
                 @endforeach
                 </tbody>

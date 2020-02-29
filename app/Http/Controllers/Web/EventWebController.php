@@ -87,7 +87,13 @@ class EventWebController extends Controller
         $clients = [];
         foreach($users as $user)
         {
-            $clients[] = $user->user();
+            $i = $user->user();
+            $clients[] = [
+                'name' => $i->name,
+                'email' => $i->email,
+                'phone' => $user->phone,
+                'org' => $user->org,
+            ];
         };
         return view('events.eventDetail', [
             'title' => 'Информация о мероприятии',

@@ -17,6 +17,8 @@ class CreateUserToEventsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('event_id')->unsigned();
+            $table->string('phone');
+            $table->string('org');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('clients');
