@@ -33,7 +33,7 @@
                         <td>{{ $item['name']}}</td>
                         <td>{{ $item['email'] }}</td>
                         <td>{{ $item['phone']}}</td>
-                        <td>{{ $item['organization'] }}</td>
+                        <td>{{ $item['org'] }}</td>
                     </tr>
                 @endforeach
                 </tbody>
