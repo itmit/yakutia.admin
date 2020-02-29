@@ -123,6 +123,8 @@
                             <li name="messenger" style="width: 100%"><a href="{{ route('auth.messenger.index') }}">Мессенджер</a></li>
         
                             <li name="mods" style="width: 100%"><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
+
+                            <li name="about" style="width: 100%"><a href="{{ route('auth.about.index') }}">О приложении</a></li>
         
                             @endif
 
@@ -190,6 +192,10 @@
 
         case 'user':
             $( "li[name='user']" ).addClass( "active" );
+            break;
+
+        case 'about':
+            $( "li[name='about']" ).addClass( "active" );
             break;
         }
     })
