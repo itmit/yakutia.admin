@@ -87,4 +87,57 @@ class CasesWebController extends Controller
         Cases::where('id', '=', $request->id)->delete();
         return response()->json(['succses'=>'Удалено'], 200); 
     }
+
+            /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $case = Cases::where('id', $id)->first();
+        return view('cases.caseEdit', [
+            'title' => 'Редактировать кейс',
+            'id' => $id,
+            'contest' => $case
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $request->case_head = trim($request->case_head);
+        $request->case_body = trim($request->case_body);
+
+        $validator = Validator::make($request->all(), [
+            'case_head' => 'required|min:3|max:191|string',
+            'case_body' => 'required|min:3|max:100000',
+            'case_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.cases.edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $path = $request->file('case_picture')->store('public/newsPictures');
+        $url = Storage::url($path);
+
+        Cases::where('id', $id)->update([
+            'head' => $request->input('case_head'),
+            'body' => $request->input('case_body'),
+            'picture' => $url,
+        ]);
+
+        return redirect()->route('auth.cases.index');
+    }
 }

@@ -11,7 +11,10 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                        <h1>{{ $item->head }}<i class="material-icons delete-case" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></h1>
+                        <h1>
+                            {{ $item->head }}<i class="material-icons delete-case" style="cursor: pointer" data-id="{{ $item->id }}">delete</i>
+                            <a href="cases/{{ $item->id }}/edit"><i class="material-icons">edit</i></a>
+                        </h1>
                     <div class="row">
                     <div class="col-4 col-sm-12">
                         <img src="{{ $item->picture }}" alt="{{ $item->head }}" width="35%" style="float:left; margin: 7px 7px 7px 0;">
