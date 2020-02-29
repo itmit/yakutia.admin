@@ -15,10 +15,7 @@ class AboutController extends ApiBaseController
      */
     public function index()
     {
-        return view('grants.grants', [
-            'title' => 'О приложении',
-            'about' => About::select('*')->latest()->first()
-        ]);
+        return $this->sendResponse(About::select('*')->latest()->first()->toArray(), 'News returned');
     }
 
     /**

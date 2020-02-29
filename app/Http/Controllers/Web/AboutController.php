@@ -18,7 +18,7 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('grants.grants', [
+        return view('about.about', [
             'title' => 'О приложении',
             'about' => About::select('*')->latest()->first()
         ]);
