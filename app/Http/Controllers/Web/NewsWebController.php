@@ -98,7 +98,8 @@ class NewsWebController extends Controller
     public function edit($id)
     {
         return view('news.newsEdit', [
-            'title' => 'Редактировать новость'
+            'title' => 'Редактировать новость',
+            'id' => $id
         ]);
     }
 
