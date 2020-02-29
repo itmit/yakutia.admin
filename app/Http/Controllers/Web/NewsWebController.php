@@ -127,15 +127,15 @@ class NewsWebController extends Controller
                 ->withInput();
         }
 
-        $item = ServiceItem::where('uuid', $request->item_uuid)->first()->id;
-        BusinessmanService::where('uuid', $uuid)->update([
-            'businessmen_id' => $item,
-            'accrual_method' => $request->accrual_method,
-            'writeoff_method' => $request->writeoff_method,
-            'accrual_value' => $request->accrual_value,
-            'writeoff_value' => $request->writeoff_value,
+        $path = $request->file('news_picture')->store('public/newsPictures');
+        $url = Storage::url($path);
+
+        News::where('id', $id)->update([
+            'head' => $request->input('news_head'),
+            'body' => $request->input('news_body'),
+            'picture' => $url,
         ]);
 
-        return $this->sendResponse([],'Updated');
+        return redirect()->route('auth.news.index');
     }
 }
