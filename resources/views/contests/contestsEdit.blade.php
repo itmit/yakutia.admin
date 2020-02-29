@@ -12,7 +12,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-10">
-            <input id="contest_name" type="text" class="form-control" name="contest_name" value="{{ old('contest_name') }} {{ $name }}" required maxlength="191">
+            <input id="contest_name" type="text" class="form-control" name="contest_name" value="{{ old('contest_name') }} {{ $contest->name }}" required maxlength="191">
 
             @if ($errors->has('contest_name'))
                 <span class="help-block">
@@ -47,7 +47,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-10">
-            <textarea id="contest_description" type="text" class="md-textarea form-control" name="contest_description" cols="30" rows="10" maxlength="2000">{{ old('description') }} {{ $description }}</textarea>
+            <textarea id="contest_description" type="text" class="md-textarea form-control" name="contest_description" cols="30" rows="10" maxlength="2000">{{ old('description') }} {{ $contest->description }}</textarea>
 
             @if ($errors->has('contest_description'))
                 <span class="help-block">
