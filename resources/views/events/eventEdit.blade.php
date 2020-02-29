@@ -60,7 +60,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-10">
-            <input type="date" class="form-control" name="event_date" value="{{ $event->date_start }}" required>
+            <input type="date" class="form-control" name="event_date" value="{{ date('yyyy-MM-dd', $event->date_start) }}" required>
 
             @if ($errors->has('event_date'))
                 <span class="help-block">
