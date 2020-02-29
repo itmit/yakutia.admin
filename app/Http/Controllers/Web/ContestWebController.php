@@ -143,11 +143,13 @@ class ContestWebController extends Controller
                 ->withInput();
         }
 
-        $contest = Contest::where('id', $id)->update([
+        Contest::where('id', $id)->update([
             'name' => $request->contest_name,
             'level' => $request->contest_level,
             'description' => $request->contest_description,
         ]);
+
+        $contest = Contest::where('id', $id)->first();
 
         if($contest != null)
         {
