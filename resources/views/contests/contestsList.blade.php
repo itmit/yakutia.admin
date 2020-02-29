@@ -22,6 +22,7 @@
                         <td><a href="contests/{{ $item->id }}"> {{ $item->name }} </a></td>
                         <td>{{ $item->level }}</td>
                         <td><i class="material-icons delete-contest" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
+                        <td><a href="contests/{{ $item->id }}/edit"><i class="material-icons">edit</i></a></td>
                     </tr>
                 @endforeach
                 </tbody>

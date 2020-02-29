@@ -101,4 +101,69 @@ class ContestWebController extends Controller
         Contest::where('id', '=', $request->id)->delete();
         return response()->json(['succses'=>'Удалено'], 200); 
     }
+
+        /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $contest = Contest::where('id', $id)->first();
+        return view('contests.contestsEdit', [
+            'title' => 'Редактировать конкурс',
+            'id' => $id,
+            'contest' => $contest
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $request->contest_name = trim($request->contest_name);
+        $request->contest_description = trim($request->contest_description);
+        
+        $validator = Validator::make($request->all(), [
+            'contest_name' => 'required|min:3|max:191|string',
+            'contest_description' => 'required|min:3|max:100000',
+            'contest_level' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.contests.edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $contest = Contest::where()->update([
+            'name' => $request->contest_name,
+            'level' => $request->contest_level,
+            'description' => $request->contest_description,
+        ]);
+
+        if($contest != null)
+        {
+            foreach($request->file('docs') as $file)
+            {
+                $path = $file->storeAs('public/contestDocuments', $file->getClientOriginalName());
+                $url = Storage::url($path);
+    
+                DocumentToContest::create([
+                    'contest_id' => $contest->id,
+                    'document' => $url,
+                ]);
+            }
+        }
+        
+
+        return redirect()->route('auth.contests.index');
+    }
 }
