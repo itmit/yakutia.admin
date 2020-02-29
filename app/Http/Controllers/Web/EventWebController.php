@@ -114,4 +114,56 @@ class EventWebController extends Controller
         Event::where('id', '=', $request->id)->delete();
         return response()->json(['succses'=>'Удалено'], 200); 
     }
+
+            /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $event = Event::where('id', $id)->first();
+        return view('events.eventEdit', [
+            'title' => 'Редактировать событие',
+            'id' => $id,
+            'event' => $event
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $request->event_head = trim($request->event_head);
+        $request->event_body = trim($request->event_body);
+
+        $validator = Validator::make($request->all(), [
+            'event_head' => 'required|min:3|max:191|string',
+            'event_body' => 'required|min:3|max:100000',
+            'event_date' => 'required|date',
+            'event_place' => 'required|min:3|max:191|string',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.events.edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        Event::where('id', $id)->update([
+            'head' => $request->input('event_head'),
+            'body' => $request->input('event_body'),
+            'date_start' => $request->input('event_date'),
+            'place' => $request->input('event_place')
+        ]);
+
+        return redirect()->route('auth.events.index');
+    }
 }

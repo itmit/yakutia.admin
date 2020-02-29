@@ -24,6 +24,7 @@
                         <td>{{ $item->place }}</td>
                         <td>{{ date('d.m.Y', strtotime($item->date_start)) }}</td>
                         <td><i class="material-icons delete-event" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
+                        <td><a href="events/{{ $item->id }}/edit"><i class="material-icons">edit</i></a></td>
                     </tr>
                 @endforeach
                 </tbody>
