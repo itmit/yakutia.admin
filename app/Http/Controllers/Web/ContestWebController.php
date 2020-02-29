@@ -143,7 +143,7 @@ class ContestWebController extends Controller
                 ->withInput();
         }
 
-        $contest = Contest::where()->update([
+        $contest = Contest::where('id', $id)->update([
             'name' => $request->contest_name,
             'level' => $request->contest_level,
             'description' => $request->contest_description,
@@ -163,7 +163,6 @@ class ContestWebController extends Controller
             }
         }
         
-
         return redirect()->route('auth.contests.index');
     }
 }
