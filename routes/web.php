@@ -41,6 +41,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::resource('grants', 'Web\GrantWebController');
 
     Route::resource('faq', 'Web\FaqWebController');
+
+    Route::resource('about', 'Web\AboutController');
     
 });
 

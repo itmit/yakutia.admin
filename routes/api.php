@@ -42,5 +42,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('grants/index', 'Api\GrantApiController@index');
 
     Route::get('faq/index', 'Api\FaqApiController@index');
+
+    Route::get('about', 'Api\AboutController@index');
 });
 
