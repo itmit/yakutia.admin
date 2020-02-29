@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <form class="form-horizontal" method="POST" action="{{ route('auth.about.store') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <textarea name="about" style="width: 100%">@if($about){{ $grant->text }}@endif</textarea>
+                <textarea name="about" style="width: 100%">@if($about){{ $about->text }}@endif</textarea>
                 <input type="submit" value="Сохранить">
             </form>
         </div>
