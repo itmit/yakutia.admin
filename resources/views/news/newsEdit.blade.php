@@ -43,7 +43,7 @@
         </div>
     
         <div class="col-xs-12 col-sm-10">
-            <input type="file" name="news_picture" id="news_picture" class="form-control-file" accept="image/*" required value="{{ $news->icture }}">
+            <input type="file" name="news_picture" id="news_picture" class="form-control-file" accept="image/*" required value="{{ $news->picture }}">
 
             @if ($errors->has('news_picture'))
                 <span class="help-block">
