@@ -88,4 +88,54 @@ class NewsWebController extends Controller
         News::where('id', '=', $request->id)->delete();
         return response()->json(['succses'=>'Удалено'], 200); 
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        return view('news.newsEdit', [
+            'title' => 'Редактировать новость'
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $request->news_head = trim($request->news_head);
+        $request->news_body = trim($request->news_body);
+
+        $validator = Validator::make($request->all(), [
+            'news_head' => 'required|min:3|max:194|string',
+            'news_body' => 'required|min:3|max:100000',
+            'news_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.news.edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $item = ServiceItem::where('uuid', $request->item_uuid)->first()->id;
+        BusinessmanService::where('uuid', $uuid)->update([
+            'businessmen_id' => $item,
+            'accrual_method' => $request->accrual_method,
+            'writeoff_method' => $request->writeoff_method,
+            'accrual_value' => $request->accrual_value,
+            'writeoff_value' => $request->writeoff_value,
+        ]);
+
+        return $this->sendResponse([],'Updated');
+    }
 }

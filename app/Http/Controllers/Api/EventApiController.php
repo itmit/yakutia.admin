@@ -31,7 +31,9 @@ class EventApiController extends ApiBaseController
     public function registerOnEvent(Request $request)
     {
         $validator = Validator::make($request->all(), [ 
-            'event' => 'required|uuid'
+            'event' => 'required|uuid',
+            'phone' => 'string',
+            'organization' => 'string',
         ]);
         
         if ($validator->fails()) { 
@@ -49,6 +51,8 @@ class EventApiController extends ApiBaseController
         UserToEvent::create([
             'user_id' => $userId,
             'event_id' => $event->id,
+            'phone' => $request->phone,
+            'org' => $request->organization,
         ]);
 
         return $this->sendResponse([], 'Пользователь успешно зарегистрировался на мероприятие');

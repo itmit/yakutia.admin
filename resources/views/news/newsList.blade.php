@@ -10,7 +10,10 @@
 
     <div class="row">
         <div class="col-sm-12">
-            <h1>{{ $newsItem->head }}<i class="material-icons delete-news" style="cursor: pointer" data-id="{{ $newsItem->id }}">delete</i></h1>
+            <h1>
+                {{ $newsItem->head }}<i class="material-icons delete-news" style="cursor: pointer" data-id="{{ $newsItem->id }}">delete</i>
+                <a href="/{{ $newsItem->id }}/edit"><i class="material-icons">edit</i></a>
+            </h1>
             <div class="row">
             <div class="col-4 col-sm-12">
                 <img src="{{ $newsItem->picture }}" alt="{{ $newsItem->head }}" width="35%" style="float:left; margin: 7px 7px 7px 0;">
