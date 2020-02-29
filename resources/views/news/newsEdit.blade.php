@@ -2,7 +2,7 @@
 
 @section('content')
     
-<form class="form-horizontal" method="PATCH" action="{{ route('auth.news.update') }}" enctype="multipart/form-data">
+<form class="form-horizontal" method="PATCH" action="{{ route('auth.news.update', ['id' => $id]) }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 
     <div class="form-group{{ $errors->has('news_head') ? ' has-error' : '' }}">
