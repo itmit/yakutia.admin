@@ -97,9 +97,11 @@ class NewsWebController extends Controller
      */
     public function edit($id)
     {
+        $news = News::where('id', $id)->first();
         return view('news.newsEdit', [
             'title' => 'Редактировать новость',
-            'id' => $id
+            'id' => $id,
+            'news' => $news
         ]);
     }
 
