@@ -63,7 +63,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-10">
-            <input type="file" name="docs[]" class="form-control" multiple>
+            <input type="file" name="docs[]" class="form-control" multiple required>
 
             @if ($errors->has('contest_files'))
                 <span class="help-block">
