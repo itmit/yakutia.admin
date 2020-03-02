@@ -70,6 +70,7 @@ class EventApiController extends ApiBaseController
             foreach ($users as $user) {
                 $usersTokens[] = $user->user()->device_token;
             };
+            return $usersTokens;
             $fields = array (
                 'to' => $usersTokens,
                 "notification" => [
