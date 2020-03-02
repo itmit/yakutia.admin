@@ -21,11 +21,12 @@
                 <tbody>
                 @foreach($contacts as $item)
                     <tr>
-                        <td><a href="contacts/{{ $item->id }}"> {{ $item->name }} </a></td>
+                        <td>{{ $item->name }}</td>
                         <td>{{ $item->supervisor }}</td>
                         <td>{{ $item->adress }}</td>
                         <td>{{ $item->phone }}</td>
                         <td><i class="material-icons delete-contact" style="cursor: pointer" data-id="{{ $item->id }}">delete</i></td>
+                        <td><a href="contacts/{{ $item->id }}/edit"><i class="material-icons">edit</i></a></td>
                     </tr>
                 @endforeach
                 </tbody>
