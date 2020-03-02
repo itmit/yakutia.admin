@@ -44,9 +44,9 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
     Route::resource('about', 'Web\AboutController');
 
-    Route::get('g{t}', 'Web\MoreGrantController@index', ['t' => 1])->name('g1');
-    Route::get('g{t}', 'Web\MoreGrantController@index', ['t' => 2])->name('g2');
-    Route::get('g{t}', 'Web\MoreGrantController@index', ['t' => 3])->name('g3');
+    Route::get('g{t}', 'Web\MoreGrantController@index', ['t' => 1]);
+    Route::get('g{t}', 'Web\MoreGrantController@index', ['t' => 2]);
+    Route::get('g{t}', 'Web\MoreGrantController@index', ['t' => 3]);
 
     Route::post('g1/store', 'Web\MoreGrantController@store')->name('g1.store');
     Route::post('g2/store', 'Web\MoreGrantController@store')->name('g2.store');
