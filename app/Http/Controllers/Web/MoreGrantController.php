@@ -60,7 +60,7 @@ class MoreGrantController extends Controller
             {
                 foreach($request->file('docs') as $file)
             {
-                $path = $file->storeAs('public/moreGrantsFiles', $file->getClientOriginalName());
+                $path = $file->storeAs('public/moreGrantsFiles/'.$request->t.'', $file->getClientOriginalName());
                 $url = Storage::url($path);
     
                 MoreGrantToFile::create([
