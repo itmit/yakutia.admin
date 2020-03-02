@@ -203,7 +203,6 @@
         case 'about':
             $( "li[name='about']" ).addClass( "active" );
             break;
-        }
 
         case 'g1':
             $( "li[name='g1']" ).addClass( "active" );
