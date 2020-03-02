@@ -20,6 +20,7 @@ class CreateClientsTable extends Migration
             $table->string('email');
             $table->string('type');
             $table->string('password');
+            $table->string('code')->nullable();
             $table->rememberToken();
             $table->text('device_token')->unique();
             $table->timestamps();

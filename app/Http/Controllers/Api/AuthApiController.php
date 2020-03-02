@@ -167,5 +167,29 @@ class AuthApiController extends ApiBaseController
             return $this->sendResponse($error);
         }
     }
+
+    public function sendCode(Request $request)
+    {
+        $validator = Validator::make($request->all(), [ 
+            'email' => 'required|email|exists:clients',
+        ]);
+        
+        if ($validator->fails()) { 
+            return response()->json(['errors'=>$validator->errors()], 401);            
+        }
+
+        $code = random_int(1000, 9999);
+        $message = "Ваш код для сброса пароля: " . $code;
+
+        // На случай если какая-то строка письма длиннее 70 символов мы используем wordwrap()
+        $message = wordwrap($message, 70, "\r\n");
+
+        // Отправляем
+        mail($request->email, 'My Subject', $message);
+    }
     
+    public function resetPassword(Request $request)
+    {
+        
+    }
 }
