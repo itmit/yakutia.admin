@@ -181,11 +181,15 @@ class AuthApiController extends ApiBaseController
         $code = random_int(1000, 9999);
         $message = "Ваш код для сброса пароля: " . $code;
 
+        Client::where('email', $request->email)->update([
+            'code' => $code
+        ]);
+
         // На случай если какая-то строка письма длиннее 70 символов мы используем wordwrap()
         $message = wordwrap($message, 70, "\r\n");
 
         // Отправляем
-        mail($request->email, 'My Subject', $message);
+        mail($request->email, 'НКО Якутия. Сброс пароля', $message);
     }
     
     public function resetPassword(Request $request)
