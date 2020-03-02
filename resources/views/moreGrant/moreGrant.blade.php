@@ -28,7 +28,7 @@
             </form>
             @foreach ($files as $file)
                 <a href="{{ $file->file }}">
-                    {{ substr(strrchr($item->file, '/'), 1) }}
+                    {{ substr(strrchr($file->file, '/'), 1) }}
                 </a>
             @endforeach
         </div>
