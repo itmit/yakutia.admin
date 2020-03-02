@@ -40,7 +40,7 @@ class GrantWebController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                ->route('auth.grants.index')
+                ->route('auth.grants.index', ['id' => $id])
                 ->withErrors($validator)
                 ->withInput();
         }

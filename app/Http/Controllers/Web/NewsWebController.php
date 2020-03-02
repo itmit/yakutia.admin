@@ -125,7 +125,7 @@ class NewsWebController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                ->route('auth.news.edit')
+                ->route('auth.news.edit', ['id' => $id])
                 ->withErrors($validator)
                 ->withInput();
         }

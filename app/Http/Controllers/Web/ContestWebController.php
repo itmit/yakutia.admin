@@ -138,7 +138,7 @@ class ContestWebController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                ->route('auth.contests.edit')
+                ->route('auth.contests.edit', ['id' => $id])
                 ->withErrors($validator)
                 ->withInput();
         }

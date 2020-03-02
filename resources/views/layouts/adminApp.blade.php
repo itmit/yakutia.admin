@@ -116,6 +116,12 @@
 
                             <li name="grants" style="width: 100%"><a href="{{ route('auth.grants.index') }}">Президентские гранты</a></li>
 
+                            <ul>
+                                <li name="grants" style="width: 100%"><a href="{{ route('auth.grants.index') }}">Для победителей</a></li>
+                                <li name="grants" style="width: 100%"><a href="{{ route('auth.grants.index') }}">Для участников</a></li>
+                                <li name="grants" style="width: 100%"><a href="{{ route('auth.grants.index') }}">Список победителей с РС (Я)</a></li>
+                            </ul>
+
                             <li name="contacts" style="width: 100%"><a href="{{ route('auth.contacts.index') }}">Контакты</a></li>
 
                             <li name="faq" style="width: 100%"><a href="{{ route('auth.faq.index') }}">Вопрос-ответ</a></li>
