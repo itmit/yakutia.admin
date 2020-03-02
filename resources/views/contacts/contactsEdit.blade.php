@@ -43,7 +43,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-9">
-            <input id="сontact_adress" type="text" class="form-control" name="сontact_adress" value="{{ $contact->address }}" required maxlength="191">
+            <input id="сontact_adress" type="text" class="form-control" name="сontact_adress" value="{{ $contact->adress }}" required maxlength="191">
 
             @if ($errors->has('сontact_adress'))
                 <span class="help-block">
