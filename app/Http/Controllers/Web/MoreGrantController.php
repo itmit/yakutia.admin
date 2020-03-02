@@ -27,16 +27,6 @@ class MoreGrantController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -44,41 +34,44 @@ class MoreGrantController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->grant = trim($request->grant);
+        
+        $validator = Validator::make($request->all(), [
+            'grant' => 'required|min:3|max:191|string',
+            't' => 'required',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        if ($validator->fails()) {
+            return redirect()
+                ->to('http://yakutia.itmit-studio.ru/g'.$request->t)
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $grant = MoreGrant::create([
+            'type' => $request->t,
+            'grant' => $request->grant,
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        if($contest != null)
+        {
+            if($request->file('docs') != null)
+            {
+                foreach($request->file('docs') as $file)
+            {
+                $path = $file->storeAs('public/moreGrantsFiles', $file->getClientOriginalName());
+                $url = Storage::url($path);
+    
+                MoreGrantToFile::create([
+                    'm_grant_id' => $grant->id,
+                    'file' => $url,
+                ]);
+            }
+            }
+        }
+        
+
+        return redirect()->to('http://yakutia.itmit-studio.ru/g'.$request->t);
     }
 
     /**
