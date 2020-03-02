@@ -26,6 +26,11 @@
                 <input type="hidden" name="t" value={{ $t }}>
                 <input type="submit" value="Сохранить">
             </form>
+            @foreach ($files as $file)
+                <a href="{{ $file->file }}">
+                    {{ substr(strrchr($item->file, '/'), 1) }}
+                </a>
+            @endforeach
         </div>
     </div>
 </div>

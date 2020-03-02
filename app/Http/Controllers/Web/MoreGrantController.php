@@ -22,6 +22,7 @@ class MoreGrantController extends Controller
         return view('moreGrant.moreGrant', [
             'title' => 'Президентские гранты',
             'grant' => MoreGrant::select('*')->where('type', $t)->latest()->first(),
+            'files' => MoreGrantToFile::where('m_grant_id', $request->t),
             't' => $t
         ]);
     }
@@ -63,7 +64,7 @@ class MoreGrantController extends Controller
                 $url = Storage::url($path);
     
                 MoreGrantToFile::create([
-                    'm_grant_id' => $grant->id,
+                    'm_grant_id' => $request->t,
                     'file' => $url,
                 ]);
             }
