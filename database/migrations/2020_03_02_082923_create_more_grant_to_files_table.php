@@ -19,7 +19,7 @@ class CreateMoreGrantToFilesTable extends Migration
             $table->text('file');
             $table->timestamps();
 
-            $table->foreign('m_grant_id')->references('id')->on('more_grants');
+            // $table->foreign('m_grant_id')->references('id')->on('more_grants');
         });
     }
 
