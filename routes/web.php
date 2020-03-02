@@ -47,6 +47,10 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::get('g1', 'Web\MoreGrantController@index', ['t' => 1])->name('g1');
     Route::get('g2', 'Web\MoreGrantController@index', ['t' => 2])->name('g2');
     Route::get('g3', 'Web\MoreGrantController@index', ['t' => 3])->name('g3');
+
+    Route::post('g1/store', 'Web\MoreGrantController@store')->name('g1.store');
+    Route::post('g2/store', 'Web\MoreGrantController@store')->name('g2.store');
+    Route::post('g3/store', 'Web\MoreGrantController@store')->name('g3.store');
     
 });
 
