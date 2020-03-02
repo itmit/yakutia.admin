@@ -48,9 +48,9 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::get('g{t}', 'Web\MoreGrantController@index', ['t' => 2]);
     Route::get('g{t}', 'Web\MoreGrantController@index', ['t' => 3]);
 
-    Route::post('g1/store', 'Web\MoreGrantController@store')->name('g1.store');
-    Route::post('g2/store', 'Web\MoreGrantController@store')->name('g2.store');
-    Route::post('g3/store', 'Web\MoreGrantController@store')->name('g3.store');
+    Route::post('g{t}/store', 'Web\MoreGrantController@store', ['t' => 1]);
+    Route::post('g{t}/store', 'Web\MoreGrantController@store', ['t' => 2]);
+    Route::post('g{t}/store', 'Web\MoreGrantController@store', ['t' => 3]);
     
 });
 
