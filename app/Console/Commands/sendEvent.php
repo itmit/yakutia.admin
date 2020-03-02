@@ -44,8 +44,6 @@ class sendEvent extends Command
         $today = date("Y-m-d");  
         $events = Event::where('date_start', $today)->get();
 
-
-
         foreach ($events as $event) {
             $users = UserToEvent::where('event_id', $event->id)->get();
             $usersTokens = [];
@@ -77,7 +75,5 @@ class sendEvent extends Command
     
             curl_close ( $ch );
         };
-
-        
     }
 }

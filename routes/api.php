@@ -48,3 +48,5 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('moregrants', 'Api\MoreGrantController@index');
 });
 
+
+Route::get('sendPush', 'Api\EventApiController@send');
