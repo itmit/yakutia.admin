@@ -43,6 +43,10 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::resource('faq', 'Web\FaqWebController');
 
     Route::resource('about', 'Web\AboutController');
+
+    Route::get('g1', 'Web\MoreGrantController@index', ['t' => '1']);
+    Route::get('g2', 'Web\MoreGrantController@index', ['t' => '2']);
+    Route::get('g3', 'Web\MoreGrantController@index', ['t' => '3']);
     
 });
 

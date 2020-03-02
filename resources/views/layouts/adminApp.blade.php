@@ -117,9 +117,9 @@
                             <li name="grants" style="width: 100%"><a href="{{ route('auth.grants.index') }}">Президентские гранты</a></li>
 
                             <ul>
-                                <li name="g1" style="width: 100%"><a href="{{ route('auth.grants.index') }}">Для победителей</a></li>
-                                <li name="g2" style="width: 100%"><a href="{{ route('auth.grants.index') }}">Для участников</a></li>
-                                <li name="g3" style="width: 100%"><a href="{{ route('auth.grants.index') }}">Список победителей с РС (Я)</a></li>
+                                <li name="g1" style="width: 100%"><a href="{{ route('auth.g1.index') }}">Для победителей</a></li>
+                                <li name="g2" style="width: 100%"><a href="{{ route('auth.g2.index') }}">Для участников</a></li>
+                                <li name="g3" style="width: 100%"><a href="{{ route('auth.g3.index') }}">Список победителей с РС (Я)</a></li>
                             </ul>
 
                             <li name="contacts" style="width: 100%"><a href="{{ route('auth.contacts.index') }}">Контакты</a></li>
@@ -202,6 +202,19 @@
 
         case 'about':
             $( "li[name='about']" ).addClass( "active" );
+            break;
+        }
+
+        case 'g1':
+            $( "li[name='g1']" ).addClass( "active" );
+            break;
+
+        case 'g2':
+            $( "li[name='g2']" ).addClass( "active" );
+            break;
+
+        case 'g3':
+            $( "li[name='g3']" ).addClass( "active" );
             break;
         }
     })
