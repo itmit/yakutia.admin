@@ -4,6 +4,7 @@
     
 <form class="form-horizontal" method="POST" action="/contacts/{{ $id }}" enctype="multipart/form-data">
     {{ method_field('PATCH') }}
+    {{ csrf_field() }}
 
     <div class="form-group{{ $errors->has('сontact_name') ? ' has-error' : '' }}">
         <div class="col-xs-12 col-sm-3">
