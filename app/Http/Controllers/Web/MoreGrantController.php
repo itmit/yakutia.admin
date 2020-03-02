@@ -22,7 +22,7 @@ class MoreGrantController extends Controller
         return view('moreGrant.moreGrant', [
             'title' => 'Президентские гранты',
             'grant' => MoreGrant::select('*')->where('type', $t)->latest()->first(),
-            'files' => MoreGrantToFile::where('m_grant_id', $request->t),
+            'files' => MoreGrantToFile::where('m_grant_id', $t),
             't' => $t
         ]);
     }
