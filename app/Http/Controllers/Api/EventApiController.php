@@ -60,7 +60,7 @@ class EventApiController extends ApiBaseController
 
     public function send()
     {
-        // $url = 'https://fcm.googleapis.com/fcm/send';
+        $url = 'https://fcm.googleapis.com/fcm/send';
         // $today = date("Y-m-d");  
         // $events = Event::where('date_start', $today)->get();
 
