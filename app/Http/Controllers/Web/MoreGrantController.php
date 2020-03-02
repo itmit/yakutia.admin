@@ -19,7 +19,7 @@ class MoreGrantController extends Controller
      */
     public function index($t = 1)
     {
-        return view('moreGrant.moreGrants', [
+        return view('moreGrant.moreGrant', [
             'title' => 'Президентские гранты',
             'grant' => MoreGrant::select('*')->where('type', $t)->latest()->first(),
             't' => $t
