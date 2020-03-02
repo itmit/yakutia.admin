@@ -17,7 +17,7 @@ class MoreGrantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($t)
+    public function index($t = 1)
     {
         return view('moreGrant.moreGrants', [
             'title' => 'Президентские гранты',
