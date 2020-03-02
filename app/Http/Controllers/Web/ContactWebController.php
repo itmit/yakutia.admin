@@ -124,7 +124,7 @@ class ContactWebController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                ->route('auth.сontacts.edit', ['id' => $id])
+                ->route('auth.contacts.edit', ['id' => $id])
                 ->withErrors($validator)
                 ->withInput();
         }
