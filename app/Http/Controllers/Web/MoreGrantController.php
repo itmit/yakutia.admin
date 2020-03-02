@@ -53,7 +53,7 @@ class MoreGrantController extends Controller
             'grant' => $request->grant,
         ]);
 
-        if($contest != null)
+        if($grant != null)
         {
             if($request->file('docs') != null)
             {
