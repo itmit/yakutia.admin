@@ -60,39 +60,39 @@ class EventApiController extends ApiBaseController
 
     public function send()
     {
-        $url = 'https://fcm.googleapis.com/fcm/send';
-        $today = date("Y-m-d");  
-        $events = Event::where('date_start', $today)->get();
+        // $url = 'https://fcm.googleapis.com/fcm/send';
+        // $today = date("Y-m-d");  
+        // $events = Event::where('date_start', $today)->get();
 
-        foreach ($events as $event) {
-            $users = UserToEvent::where('event_id', $event->id)->get();
-            foreach ($users as $user) {
-                $fields = array (
-                    'to' => $user->user()->device_token,
-                    "notification" => [
-                        "body" => "Сегодня событие" . $event->head,
-                        "title" => "Внимание"
-                    ]
-                );
-                $fields = json_encode ( $fields );
+        // foreach ($events as $event) {
+        //     $users = UserToEvent::where('event_id', $event->id)->get();
+        //     foreach ($users as $user) {
+        //         $fields = array (
+        //             'to' => $user->user()->device_token,
+        //             "notification" => [
+        //                 "body" => "Сегодня событие " . $event->head,
+        //                 "title" => "Внимание"
+        //             ]
+        //         );
+        //         $fields = json_encode ( $fields );
         
-                $headers = array (
-                        'Authorization: key=' . "AAAA6ySBDpw:APA91bH_y7bFtB0fHFyLiSiDjvy4BvqzkiOzsU_QbJyWFHAH0n1EdGqsllWm_r_wOxDGxiThbHtLRVF7WzaG3pZFTp_Skxk9bb-VeZdA8HOwIQG7hOvZb4LhOWqjX6sV9nkaHhbzpgzp",
-                        'Content-Type: application/json'
-                );
+        //         $headers = array (
+        //                 'Authorization: key=' . "AAAA6ySBDpw:APA91bH_y7bFtB0fHFyLiSiDjvy4BvqzkiOzsU_QbJyWFHAH0n1EdGqsllWm_r_wOxDGxiThbHtLRVF7WzaG3pZFTp_Skxk9bb-VeZdA8HOwIQG7hOvZb4LhOWqjX6sV9nkaHhbzpgzp",
+        //                 'Content-Type: application/json'
+        //         );
         
-                $ch = curl_init ();
-                curl_setopt ( $ch, CURLOPT_URL, $url );
-                curl_setopt ( $ch, CURLOPT_POST, true );
-                curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
-                curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
-                curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
+        //         $ch = curl_init ();
+        //         curl_setopt ( $ch, CURLOPT_URL, $url );
+        //         curl_setopt ( $ch, CURLOPT_POST, true );
+        //         curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
+        //         curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+        //         curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
         
-                curl_exec ( $ch );
+        //         curl_exec ( $ch );
         
-                curl_close ( $ch );
-            };
-        };
+        //         curl_close ( $ch );
+        //     };
+        // };
     }
 
 }

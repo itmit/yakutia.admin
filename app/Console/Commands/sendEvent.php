@@ -46,34 +46,32 @@ class sendEvent extends Command
 
         foreach ($events as $event) {
             $users = UserToEvent::where('event_id', $event->id)->get();
-            $usersTokens = [];
             foreach ($users as $user) {
-                $usersTokens[] = $user->user()->device_token;
+                $fields = array (
+                    'to' => $user->user()->device_token,
+                    "notification" => [
+                        "body" => "Сегодня событие " . $event->head,
+                        "title" => "Внимание"
+                    ]
+                );
+                $fields = json_encode ( $fields );
+        
+                $headers = array (
+                        'Authorization: key=' . "AAAA6ySBDpw:APA91bH_y7bFtB0fHFyLiSiDjvy4BvqzkiOzsU_QbJyWFHAH0n1EdGqsllWm_r_wOxDGxiThbHtLRVF7WzaG3pZFTp_Skxk9bb-VeZdA8HOwIQG7hOvZb4LhOWqjX6sV9nkaHhbzpgzp",
+                        'Content-Type: application/json'
+                );
+        
+                $ch = curl_init ();
+                curl_setopt ( $ch, CURLOPT_URL, $url );
+                curl_setopt ( $ch, CURLOPT_POST, true );
+                curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
+                curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+                curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
+        
+                curl_exec ( $ch );
+        
+                curl_close ( $ch );
             };
-            $fields = array (
-                'to' => $usersTokens,
-                "notification" => [
-                    "body" => "Сегодня событие" . $event->head,
-                    "title" => "Внимание"
-                ]
-            );
-            $fields = json_encode ( $fields );
-    
-            $headers = array (
-                    'Authorization: key=' . "AAAA6ySBDpw:APA91bH_y7bFtB0fHFyLiSiDjvy4BvqzkiOzsU_QbJyWFHAH0n1EdGqsllWm_r_wOxDGxiThbHtLRVF7WzaG3pZFTp_Skxk9bb-VeZdA8HOwIQG7hOvZb4LhOWqjX6sV9nkaHhbzpgzp",
-                    'Content-Type: application/json'
-            );
-    
-            $ch = curl_init ();
-            curl_setopt ( $ch, CURLOPT_URL, $url );
-            curl_setopt ( $ch, CURLOPT_POST, true );
-            curl_setopt ( $ch, CURLOPT_HTTPHEADER, $headers );
-            curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
-            curl_setopt ( $ch, CURLOPT_POSTFIELDS, $fields );
-    
-            curl_exec ( $ch );
-    
-            curl_close ( $ch );
         };
     }
 }
