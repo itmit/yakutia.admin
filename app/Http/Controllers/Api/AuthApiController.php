@@ -196,7 +196,7 @@ class AuthApiController extends ApiBaseController
     {
         $validator = Validator::make($request->all(), [ 
             'email' => 'required|email|exists:clients',
-            'code' => 'required|email',
+            'code' => 'required',
             'password' => 'required|confirmed'
         ]);
         
