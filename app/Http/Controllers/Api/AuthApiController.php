@@ -194,6 +194,25 @@ class AuthApiController extends ApiBaseController
     
     public function resetPassword(Request $request)
     {
+        $validator = Validator::make($request->all(), [ 
+            'email' => 'required|email|exists:clients',
+            'code' => 'required|email',
+            'password' => 'required|confirmed'
+        ]);
         
+        if ($validator->fails()) { 
+            return response()->json(['errors'=>$validator->errors()], 401);            
+        }
+
+        $client = Client::where('email', $request->email)->first();
+
+        if($request->code == $client->codef)
+        {
+            $client->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
+
+        return $this->sendResponse([], 'Пароль успешно сменен');
     }
 }
