@@ -210,6 +210,7 @@ class AuthApiController extends ApiBaseController
         {
             $client->update([
                 'password' => Hash::make($request->password),
+                'code' => null
             ]);
         }
         else return response()->json(['error'=>'Wrong code'], 400);     
