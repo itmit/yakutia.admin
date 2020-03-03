@@ -206,12 +206,13 @@ class AuthApiController extends ApiBaseController
 
         $client = Client::where('email', $request->email)->first();
 
-        if($request->code == $client->codef)
+        if($request->code == $client->code)
         {
             $client->update([
                 'password' => Hash::make($request->password),
             ]);
         }
+        else return response()->json(['error'=>'Wrong code'], 400);     
 
         return $this->sendResponse([], 'Пароль успешно сменен');
     }
