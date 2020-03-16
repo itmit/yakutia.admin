@@ -58,6 +58,11 @@ class EventApiController extends ApiBaseController
         return $this->sendResponse([], 'Пользователь успешно зарегистрировался на мероприятие');
     }
 
+    public function getEventsDates()
+    {
+        return $this->sendResponse(Event::orderBy('date_start')->distinct('date_start')->get()->toArray(), '');
+    }
+
     public function send()
     {
         $url = 'https://fcm.googleapis.com/fcm/send';
