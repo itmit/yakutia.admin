@@ -60,7 +60,7 @@ class EventApiController extends ApiBaseController
 
     public function getEventsDates()
     {
-        return $this->sendResponse(Event::orderBy('date_start')->distinct('date_start')->get()->toArray(), '');
+        return $this->sendResponse(Event::orderBy('date_start')->distinct('date_start')->get('date_start')->toArray(), '');
     }
 
     public function send()
