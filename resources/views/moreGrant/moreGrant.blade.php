@@ -48,19 +48,20 @@ $(document).ready(function()
             {
                 let file = $(this).data('file');
                 let delFile =  $(this).closest('p');
-                $.ajax({
-                    headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                    dataType: "json",
-                    data    : { file: file },
-                    url     : '../deleteMoreGrantsFile',
-                    method    : 'post',
-                    success: function (response) {
-                        delFile.remove();
-                    },
-                    error: function (xhr, err) { 
-                        console.log("Error: " + xhr + " " + err);
-                    }
-                });
+                console.log(delFile);
+                // $.ajax({
+                //     headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                //     dataType: "json",
+                //     data    : { file: file },
+                //     url     : '../deleteMoreGrantsFile',
+                //     method    : 'post',
+                //     success: function (response) {
+                //         delFile.remove();
+                //     },
+                //     error: function (xhr, err) { 
+                //         console.log("Error: " + xhr + " " + err);
+                //     }
+                // });
             }
         })
     })
