@@ -31,10 +31,38 @@
                 <a href="{{ $file->file }}">
                     {{ substr(strrchr($file->file, '/'), 1) }}
                 </a>
+                <span class="material-icons delete-file" style="cursor: pointer" data-file="{{$file->id}}">
+                    delete_forever
+                </span>
             </p>
             @endforeach
         </div>
     </div>
 </div>
-
+<script>
+$(document).ready(function()
+    {
+        $('.delete-file').click(function () {
+            let isDel = confirm("Удалить файл?");
+            if(isDel)
+            {
+                let file = $(this).data('file');
+                let delFile =  $(this).closest('p');
+                $.ajax({
+                    headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    dataType: "json",
+                    data    : { file: file },
+                    url     : '../deletePhoto',
+                    method    : 'post',
+                    success: function (response) {
+                        delFile.remove();
+                    },
+                    error: function (xhr, err) { 
+                        console.log("Error: " + xhr + " " + err);
+                    }
+                });
+            }
+        })
+    })
+</script>
 @endsection
