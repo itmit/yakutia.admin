@@ -89,5 +89,6 @@ class MoreGrantController extends Controller
     public function deleteMoreGrantsFile(Request $request)
     {
         MoreGrantToFile::where('id', $request->file)->delete();
+        return response()->json(['Deleted'], 200);
     }
 }
