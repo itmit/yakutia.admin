@@ -52,7 +52,7 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::post('g{t}/store', 'Web\MoreGrantController@store', ['t' => 2]);
     Route::post('g{t}/store', 'Web\MoreGrantController@store', ['t' => 3]);
     
-    Route::post('deleteMoreGrantsFile', 'Web\MoreGrantController@store');
+    Route::post('deleteMoreGrantsFile', 'Web\MoreGrantController@deleteMoreGrantsFile');
 });
 
 Auth::routes();
