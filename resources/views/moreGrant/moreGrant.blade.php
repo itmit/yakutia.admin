@@ -52,7 +52,7 @@ $(document).ready(function()
                     headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                     dataType: "json",
                     data    : { file: file },
-                    url     : '../deletePhoto',
+                    url     : '../deleteMoreGrantsFile',
                     method    : 'post',
                     success: function (response) {
                         delFile.remove();
