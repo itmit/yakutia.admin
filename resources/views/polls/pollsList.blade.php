@@ -42,6 +42,8 @@ $(document).on('click', '.js-destroy-button', function() {
             ids.push($(this).data('pollId'));
         });
 
+        console.log(ids);
+
         $.ajax({
             headers : {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
             dataType: "json",
