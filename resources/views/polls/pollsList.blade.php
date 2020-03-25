@@ -6,12 +6,12 @@
         <div class="col-md-12">
             <div class="group-btn-card">
                 <a href="{{ route('auth.polls.create') }}" class="btn btn-primary">Создать опрос</a>
-                {{-- <button type="button" class="btn-card btn-tc-danger js-destroy-button">Удалить отмеченные опросы</button> --}}
+                <button type="button" class="btn-card btn-tc-danger js-destroy-button">Удалить отмеченные опросы</button>
             </div>
             <table class="table policy-table">
                 <thead>
                 <tr>
-                    {{-- <th scope="col"><input type="checkbox" name="destroy-all-polls" class="js-destroy-all"/></th> --}}
+                    <th scope="col"><input type="checkbox" name="destroy-all-polls" class="js-destroy-all"/></th>
                     <th scope="col">Наименование</th>
                     <th scope="col">Дата создания</th>
                 </tr>
@@ -28,7 +28,7 @@
         </div>
     </div>
 </div>
-{{-- <script>
+<script>
 
 $(document).on('click', '.js-destroy-button', function() {
     let isDelete = confirm("Удалить отмеченные опросы? Все результаты прохождений опросов будут утеряны. Данное действие нельзя отменить");
@@ -58,5 +58,5 @@ $(document).on('click', '.js-destroy-button', function() {
     }
 });
 
-</script> --}}
+</script>
 @endsection
