@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="group-btn-card">
                 <a href="{{ route('auth.polls.create') }}" class="btn btn-primary">Создать опрос</a>
-                <button type="button" class="btn-card btn-tc-danger js-destroy-button">Удалить отмеченные опросы</button>
+                <button type="button" class="btn-card btn-danger js-destroy-button">Удалить отмеченные опросы</button>
             </div>
             <table class="table policy-table">
                 <thead>
