@@ -19,7 +19,7 @@
                 <tbody>
                 @foreach($polls as $poll)
                     <tr>
-                        <td><input type="checkbox" name="destroy" class="js-destroy" data-pollId="{{ $poll->id }}"></td>
+                        <td scope="row"><input type="checkbox" data-poll-id="{{ $poll->id }}" name="destoy-poll-{{ $poll->id }}" class="js-destroy"/></td>
                         <td>{{ $poll->name }}</td>
                         <td>{{ $poll->created_at->timezone('Europe/Moscow') }}</td>
                     </tr>
