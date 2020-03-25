@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="group-btn-card">
                 <a href="{{ route('auth.polls.create') }}" class="btn btn-primary">Создать опрос</a>
-                <button type="button" class="btn-card btn-danger js-destroy-button">Удалить отмеченные опросы</button>
+                <button type="button" class="btn btn-danger js-destroy-button">Удалить отмеченные опросы</button>
             </div>
             <table class="table policy-table">
                 <thead>
@@ -19,7 +19,7 @@
                 <tbody>
                 @foreach($polls as $poll)
                     <tr>
-                        <td><input type="checkbox" name="destroy" class="js-destroy"/></td>
+                        <td><input type="checkbox" name="destroy" class="js-destroy" data-pollId="{{ $poll->id }}"></td>
                         <td>{{ $poll->name }}</td>
                         <td>{{ $poll->created_at->timezone('Europe/Moscow') }}</td>
                     </tr>
