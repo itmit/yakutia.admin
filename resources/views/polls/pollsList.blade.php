@@ -11,7 +11,7 @@
             <table class="table policy-table">
                 <thead>
                 <tr>
-                    <th scope="col"><input type="checkbox" name="destroy-all-polls" class="js-destroy-all"/></th>
+                    <th scope="col"></th>
                     <th scope="col">Наименование</th>
                     <th scope="col">Дата создания</th>
                 </tr>
@@ -19,6 +19,7 @@
                 <tbody>
                 @foreach($polls as $poll)
                     <tr>
+                        <td><input type="checkbox" name="destroy" class="js-destroy"/></td>
                         <td>{{ $poll->name }}</td>
                         <td>{{ $poll->created_at->timezone('Europe/Moscow') }}</td>
                     </tr>
